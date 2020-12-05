@@ -7,15 +7,17 @@ import pandas as pd
 class ReferenceRange(Resource):
 
     def get(self):
-        IRON =  40
+
+
+
         #if IRON >= db.session.query(ReferenceRangeModel.Range_Low).filter(ReferenceRangeModel.Lab_Test == 'Iron', ReferenceRangeModel.Gender=='F').first() and IRON <= db.session.query(ReferenceRangeModel.Range_High).filter(ReferenceRangeModel.Lab_Test == 'Iron', ReferenceRangeModel.Gender=='F').first():
         #    print('Working')
 
 
 
 #        lowrange = ReferenceRangeModel.Compare_IRON()
-        lowrange = db.session.query(ReferenceRangeModel.Range_Low).filter(ReferenceRangeModel.Lab_Test == 'test' , ReferenceRangeModel.Gender=='F').first()
-        highrange = db.session.query(ReferenceRangeModel.Range_High).filter(ReferenceRangeModel.Lab_Test == 'test', ReferenceRangeModel.Gender=='F').first()
+        lowrange = db.session.query(ReferenceRangeModel.Range_Low).filter(ReferenceRangeModel.Lab_Test == 'IRON' , ReferenceRangeModel.Gender=='F').first()
+        highrange = db.session.query(ReferenceRangeModel.Range_High).filter(ReferenceRangeModel.Lab_Test == 'IRON', ReferenceRangeModel.Gender=='F').first()
         print(lowrange)
         highrange = float(pd.to_numeric(highrange))
         lowrange = float(pd.to_numeric(lowrange))

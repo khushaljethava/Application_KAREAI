@@ -3,6 +3,8 @@ from flask_restful import Resource
 from model.SymptomChecker import SymptomCheckerModel
 from model.SymptomCheckerAnswer import SymptomCheckerAnswerModel
 from flask import jsonify
+from flask_jwt_extended import jwt_required
+
 
 class SymptomChecker(Resource):
 

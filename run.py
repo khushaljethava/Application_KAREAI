@@ -18,7 +18,7 @@ UPLOAD_FOLDER = '/static/uploads/'
 
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://Kareai:Devil@54645@localhost/newdata'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:54645@localhost/KareAI'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:54645@localhost/karenew'
 #'mysql+pymysql://root:Vrishab2145@localhost/testOne'
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 app.config['SECRET_KEY'] = 'D3evil4'
@@ -43,7 +43,7 @@ from resources.LabReportUpload import LabReportUpload
 from resources.Labreport import LabReport
 from resources.Retina import RetinaUpload
 from model.user import RevokedTokenModel
-#from resources.ReferenceRange import ReferenceRange
+from resources.ReferenceRange import ReferenceRange
 from resources.SymptomChecker import SymptomChecker
 @jwt.token_in_blacklist_loader
 def check_if_token_in_blacklist(decrypted_token):
@@ -62,5 +62,5 @@ api.add_resource(FamilyHistory,'/familyhistory/<int:user_id>/<string:Member>') #
 api.add_resource(LabReport, '/labreport/<int:user_id>')
 api.add_resource(LabReportUpload, '/labreportupload/<int:user_id>')
 api.add_resource(RetinaUpload, '/retinaupload/<int:user_id>')
-#api.add_resource(ReferenceRange,'/reference')
+api.add_resource(ReferenceRange,'/reference')
 api.add_resource(SymptomChecker, '/symptomcheck/<int:question_id>')

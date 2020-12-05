@@ -52,20 +52,21 @@ class FamilyHistory(Resource):
     def post(self, user_id, Member):
         if FamilyHistoryModel.find_by_id(user_id) and FamilyHistoryModel.find_by_member(Member):
             return {'message': 'Item already exists'}
+        else:
 
-        data = FamilyHistory.parser.parse_args()
+            data = FamilyHistory.parser.parse_args()
 
-        familyhistory = FamilyHistoryModel(user_id, **data)
+            familyhistory = FamilyHistoryModel(user_id, **data)
 
-        try:
+            try:
 
-            familyhistory.save_to_db()
+                familyhistory.save_to_db()
 
-        except:
+            except:
 
-            return {'message': 'An Error occurred in Family History'}
+                return {'message': 'An Error occurred in Family History'}
 
-        return familyhistory.json(), 201
+            return familyhistory.json(), 201
 
     @jwt_required
     def put(self,user_id, Member):

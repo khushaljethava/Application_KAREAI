@@ -181,13 +181,14 @@ class LabReportUpload(Resource):
 #        print(user_id)
 
         if file and allowed_file(file.filename):
-            file.save('extracted_file.pdf')
+            #file.save('extracted_file.pdf')
             filename = secure_filename(file.filename)
             if os.path.isdir(Report_FOLDER+'/'+folder):
                 file.save(os.path.join(Report_FOLDER,folder, filename))
+                path_loc = os.path.join(Report_FOLDER,folder, filename)
                 #DataFile os.path.join(Report_FOLDER,folder, filename)
                 raw_text = []
-                images = convert_from_path('extracted_file.pdf')
+                images = convert_from_path(path_loc)
                 for i, image in enumerate(images):
                     fname = "image" + str(i) + ".png"
                 #    image.save(fname, "PNG")
@@ -202,7 +203,7 @@ class LabReportUpload(Resource):
                     raw_text.append(text)
                     extracted_text = listToString(raw_text)
                     #os.remove(fname)
-                    os.remove('extracted_file.pdf')
+                    #os.remove('extracted_file.pdf')
                     path = os.path.join(Temp_FOLDER,folder)
                     shutil.rmtree(path)
                     #print(extracted_text)
@@ -211,9 +212,11 @@ class LabReportUpload(Resource):
             else:
                 os.makedirs(Report_FOLDER+'/'+folder)
                 file.save(os.path.join(Report_FOLDER,folder, filename))
+                path_loc = os.path.join(Report_FOLDER,folder, filename)
+
                 #DataFile os.path.join(Report_FOLDER,folder, filename)
                 raw_text = []
-                images = convert_from_path('extracted_file.pdf')
+                images = convert_from_path(path_loc)
                 for i, image in enumerate(images):
                     fname = "image" + str(i) + ".png"
                 #    image.save(fname, "PNG")
@@ -229,7 +232,7 @@ class LabReportUpload(Resource):
                     extracted_text = listToString(raw_text)
                     #print(extracted_text)
                     #os.remove(fname)
-1                    os.remove('extracted_file.pdf')
+                   #os.remove('extracted_file.pdf')
                     path = os.path.join(Temp_FOLDER,folder)
                     shutil.rmtree(path)
 

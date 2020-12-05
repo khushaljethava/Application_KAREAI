@@ -9,7 +9,8 @@ class ReferenceRangeModel(db.Model):
     Lab_Test = db.Column(db.String(120))
     Technology = db.Column(db.String(120))
     Units = db.Column(db.String(120))
-    Age = db.Column(db.String(120))
+    Age_Less = db.Column(db.Integer)
+    Age_More = db.Column(db.Integer)
     Gender = db.Column(db.String(120))
     Range_Low = db.Column(db.Float)
     Range_High = db.Column(db.Float)
@@ -18,13 +19,14 @@ class ReferenceRangeModel(db.Model):
 
 
 
-    def __init__(self, ProcessedBy,Category,Lab_Test,Technology,Units,Age,Gender,Range_Low,Range_High,Race,Location):
+    def __init__(self,ProcessedBy,Category,Lab_Test,Technology,Units,Age_Less,Age_More,Gender,Range_Low,Range_High,Race,Location):
 
         self.ProcessedBy = ProcessedBy
         self.Category = Category
         self.Lab_Test = Lab_Test
         self.Technology = Technology
-        self.Age = Age
+        self.Age_Less = Age_Less
+        self.Age_More = Age_More
         self.Gender = Gender
         self.Range_Low = Range_Low
         self.Range_High = Range_High

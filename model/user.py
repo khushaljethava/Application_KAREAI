@@ -6,7 +6,12 @@ class UserModel(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(120), unique=True, nullable = False)
-    password = db.Column(db.String(120), nullable = False)
+    fullname = db.Column(db.String(120))
+    email = db.Column(db.String(120), unique=True, nullable = False)
+    mobile = db.Column(db.BIGINT(), unique=True, nullable = False)
+    gander = db.Column(db.String(120))
+    age = db.Column(db.Integer())
+
 
     PreexistingCondition = db.relationship('PreConditionModel', lazy='dynamic')
     FamilyHistory = db.relationship('FamilyHistoryModel', lazy='dynamic')
@@ -20,6 +25,14 @@ class UserModel(db.Model):
     @classmethod
     def find_by_username(cls, username):
         return cls.query.filter_by(username=username).first()
+
+    @classmethod
+    def find_by_mobile(cls, mobile):
+        return cls.query.filter_by(mobile=mobile).first()
+
+    @classmethod
+    def find_by_email(cls, email):
+        return cls.query.filter_by(email=email).first()
 
     @classmethod
     def find_by_id(cls, id):

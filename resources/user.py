@@ -7,20 +7,38 @@ from flask_jwt_extended import (
         get_jwt_identity, get_raw_jwt
 )
 
-parser = reqparse.RequestParser()
-parser.add_argument('username', help='Username cannot be blank', required=True)
-parser.add_argument('password', help='Password cannot be blank', required=True)
+reg_parser = reqparse.RequestParser()
+reg_parser.add_argument('username', help='Username cannot be blank', required=True)
+reg_parser.add_argument('fullname')
+reg_parser.add_argument('email', help='Email cannot be blank', required=True)
+reg_parser.add_argument('mobile', help='Mobile cannot be blank', required=True)
+reg_parser.add_argument('gander')
+reg_parser.add_argument('age')
+
+
+log_parser = reqparse.RequestParser()
+log_parser.add_argument('mobile', help='Mobile cannot be blank' , required=True)
 
 class UserRegistration(Resource):
 
     def post(self):
-        data = parser.parse_args()
+        data = reg_parser.parse_args()
         if UserModel.find_by_username(data['username']):
             return {'message': 'User {} already exists'.format(data['username'])}
+        if UserModel.find_by_mobile(data['mobile']):
+            return {'message': 'Mobile Number {} already exists'.format(data['mobile'])}
+        if UserModel.find_by_email(data['email']):
+            return {'message': 'Email {} already exists'.format(data['email'])}
+
+
         new_user = UserModel(
         username=data['username'],
-        password= UserModel.generate_hash(data['password'])
-        )
+        fullname=data['fullname'],
+        email=data['email'],
+        mobile=data['mobile'],
+        gander=data['gander'],
+        age=data['age'])
+
         try:
             new_user.save_to_db()
             access_token = create_access_token(identity = data['username'])
@@ -36,15 +54,15 @@ class UserRegistration(Resource):
 class UserLogin(Resource):
 
     def post(self):
-        data = parser.parse_args()
-        current_user = UserModel.find_by_username(data['username'])
+        data = log_parser.parse_args()
+        current_user = UserModel.find_by_mobile(data['mobile'])
         if not current_user:
-            return {'message': 'User {} doess\'t exist'.format(data['username'])}
+            return {'message': 'User {} doess\'t exist'.format(data['mobile'])}
 
-        if UserModel.verify_hash(data['password'] , current_user.password):
-            access_token = create_access_token(identity = data['username'])
-            refresh_token = create_refresh_token(identity = data['username'])
-            return {'message': 'Logged in as {}'.format(data['username']),
+        if UserModel.find_by_mobile(data['mobile']):
+            access_token = create_access_token(identity = data['mobile'])
+            refresh_token = create_refresh_token(identity = data['mobile'])
+            return {'message': 'Logged in as {}'.format(data['mobile']),
                 'access_token': access_token,
                 'refresh_token': refresh_token
             }

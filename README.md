@@ -1,26 +1,25 @@
 # Login_Reg
 
-
 # registration
 
 POST /registration
 
 {
-    "username":"username","
-    "password": "123456"
+   "username": "Khushal54",
+   "fullname": "Khushal Jethwa",
+   "mobile" : 9662737937,
+   "email" : "Khushaljethwa14@gmail.com",
+   "Gerder" : "Male",
+   "Age" : 22   
+}
+
+
+{
+   "mobile" : 9662737937
 }
 
 
 
-
-# login Json
-
-POST /login
-
-{
-    "username": "username",
-    "password": "123456"
- }
 
 
 # Logout
@@ -131,7 +130,7 @@ Example :  localhost/preexisting/5,
   "High_Cholestorol": 1
   }
 
-  # Lab Reports
+# Lab Reports
 
 POST method is not Available.
 
