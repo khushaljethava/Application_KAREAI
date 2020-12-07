@@ -4,40 +4,24 @@
 
 	POST /registration
 
-<<<<<<< HEAD
-{
-   "username": "Khushal54",
-   "fullname": "Khushal Jethwa",
-   "mobile" : 9662737937,
-   "email" : "Khushaljethwa14@gmail.com",
-   "Gerder" : "Male",
-   "Age" : 22   
-}
-=======
 	{
-    "username":"username","
-    "password": "123456"
+	   "username": "Khushal54",
+	   "fullname": "Khushal Jethwa",
+	   "mobile" : 9662737937,
+	   "email" : "Khushaljethwa14@gmail.com",
+	   "Gerder" : "Male",
+	   "Age" : 22   
 	}
->>>>>>> d51c75c5e72c0357af05ffe0d10f700d9c8145fe
-
-
-{
-   "mobile" : 9662737937
-}
-
-
-<<<<<<< HEAD
-
-=======
-# login Json
-
-	POST /login
 
 	{
-    "username": "username",
-    "password": "123456"
- 	}
->>>>>>> d51c75c5e72c0357af05ffe0d10f700d9c8145fe
+
+# Login
+
+
+	{
+	   "mobile" : 9662737937
+	}
+
 
 
 # Logout
