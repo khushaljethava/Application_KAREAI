@@ -6,64 +6,64 @@ from flask_jwt_extended import jwt_required
 
 class PreexistingCondition(Resource):
     parser = reqparse.RequestParser()
-    parser.add_argument('Race', help=' Race cannot be blank', required=True)
-    parser.add_argument('Smoking', help='Smoking cannot be blank', required=True)
-    parser.add_argument('Alcohol', help='Alcohol cannot be blank', required=True)
-    parser.add_argument('Diabetes', help='Diabetes cannot be blank', required=True)
-    parser.add_argument('Hear', help='Hear cannot be blank', required=True)
-    parser.add_argument('Blood_Pressure', help='Blood_Pressure cannot be blank', required=True)
-    parser.add_argument('Chest_Pain', help='Chest_Pain cannot be blank', required=True)
-    parser.add_argument('Stroke', help='Stroke cannot be blank', required=True)
-    parser.add_argument('Kidney', help='Kidney cannot be blank', required=True)
-    parser.add_argument('Blood_Clot', help='Blood_Clot cannot be blank', required=True)
-    parser.add_argument('Metal_implants', help='Metal_implants cannot be blank', required=True)
-    parser.add_argument('Asthma', help='Asthma cannot be blank', required=True)
-    parser.add_argument('Cancer', help='Cancer cannot be blank', required=True)
-    parser.add_argument('Difficulty_Swallowing', help='Difficulty_Swallowing cannot be blank', required=True)
-    parser.add_argument('Vascular_Problems', help='Vascular_Problems cannot be blank', required=True)
-    parser.add_argument('Peripheral_Neuropathy', help='Peripheral_Neuropathy cannot be blank', required=True)
-    parser.add_argument('Weightloss', help='Weightloss cannot be blank', required=True)
-    parser.add_argument('Double_Vision', help='Double_Vision cannot be blank', required=True)
-    parser.add_argument('Night_Sweats', help='Night_Sweats cannot be blank', required=True)
-    parser.add_argument('Night_Pain', help='Night_Pain cannot be blank', required=True)
-    parser.add_argument('Neurologic_Condition', help='Neurologic_Condition cannot be blank', required=True)
-    parser.add_argument('Skin_Disease', help='Skin_Disease cannot be blank', required=True)
-    parser.add_argument('Spinal_Cord_Injury', help='Spinal_Cord_Injury cannot be blank', required=True)
-    parser.add_argument('Degenerative_Joint_Disease', help='Degenerative_Joint_Disease cannot be blank', required=True)
-    parser.add_argument('Sexual_Dysfunction', help='Sexual_Dysfunction cannot be blank', required=True)
-    parser.add_argument('Bladder', help='Bladder cannot be blank', required=True)
-    parser.add_argument('Groin_Numbness', help='Groin_Numbness cannot be blank', required=True)
-    parser.add_argument('Arthritis', help='Arthritis cannot be blank', required=True)
-    parser.add_argument('Osteoporosis', help='Osteoporosis cannot be blank', required=True)
-    parser.add_argument('Phsychological_Problems', help='Phsychological_Problems cannot be blank', required=True)
-    parser.add_argument('Seizures', help='Seizures cannot be blank', required=True)
-    parser.add_argument('Dizziness', help='Dizziness cannot be blank', required=True)
+    parser.add_argument('PC_Race', help=' PC_Race cannot be blank', required=True)
+    parser.add_argument('PC_Smoking', help='PC_Smoking cannot be blank', required=True)
+    parser.add_argument('PC_Alcohol', help='PC_Alcohol cannot be blank', required=True)
+    parser.add_argument('PC_Diabetes', help='PC_Diabetes cannot be blank', required=True)
+    parser.add_argument('PC_Hear', help='PC_Hear cannot be blank', required=True)
+    parser.add_argument('PC_Blood_Pressure', help='PC_Blood_Pressure cannot be blank', required=True)
+    parser.add_argument('PC_Chest_Pain', help='PC_Chest_Pain cannot be blank', required=True)
+    parser.add_argument('PC_Stroke', help='PC_Stroke cannot be blank', required=True)
+    parser.add_argument('PC_Kidney', help='PC_Kidney cannot be blank', required=True)
+    parser.add_argument('PC_Blood_Clot', help='PC_Blood_Clot cannot be blank', required=True)
+    parser.add_argument('PC_Metal_implants', help='PC_Metal_implants cannot be blank', required=True)
+    parser.add_argument('PC_Asthma', help='PC_Asthma cannot be blank', required=True)
+    parser.add_argument('PC_Cancer', help='PC_Cancer cannot be blank', required=True)
+    parser.add_argument('PC_Difficulty_Swallowing', help='PC_Difficulty_Swallowing cannot be blank', required=True)
+    parser.add_argument('PC_Vascular_Problems', help='PC_Vascular_Problems cannot be blank', required=True)
+    parser.add_argument('PC_Peripheral_Neuropathy', help='PC_Peripheral_Neuropathy cannot be blank', required=True)
+    parser.add_argument('PC_Weightloss', help='PC_Weightloss cannot be blank', required=True)
+    parser.add_argument('PC_Double_Vision', help='PC_Double_Vision cannot be blank', required=True)
+    parser.add_argument('PC_Night_Sweats', help='PC_Night_Sweats cannot be blank', required=True)
+    parser.add_argument('PC_Night_Pain', help='PC_Night_Pain cannot be blank', required=True)
+    parser.add_argument('PC_Neurologic_Condition', help='PC_Neurologic_Condition cannot be blank', required=True)
+    parser.add_argument('PC_Skin_Disease', help='PC_Skin_Disease cannot be blank', required=True)
+    parser.add_argument('PC_Spinal_Cord_Injury', help='PC_Spinal_Cord_Injury cannot be blank', required=True)
+    parser.add_argument('PC_Degenerative_Joint_Disease', help='PC_Degenerative_Joint_Disease cannot be blank', required=True)
+    parser.add_argument('PC_Sexual_Dysfunction', help='PC_Sexual_Dysfunction cannot be blank', required=True)
+    parser.add_argument('PC_Bladder', help='PC_Bladder cannot be blank', required=True)
+    parser.add_argument('PC_Groin_Numbness', help='PC_Groin_Numbness cannot be blank', required=True)
+    parser.add_argument('PC_Arthritis', help='PC_Arthritis cannot be blank', required=True)
+    parser.add_argument('PC_Osteoporosis', help='PC_Osteoporosis cannot be blank', required=True)
+    parser.add_argument('PC_Phsychological_Problems', help='PC_Phsychological_Problems cannot be blank', required=True)
+    parser.add_argument('PC_Seizures', help='PC_Seizures cannot be blank', required=True)
+    parser.add_argument('PC_Dizziness', help='PC_Dizziness cannot be blank', required=True)
 
-    parser.add_argument('Ringing_in_Ears', help='Ringing_in_Ears cannot be blank', required=True)
-    parser.add_argument('Allergy_to_Latex', help='Allergy_to_Latex cannot be blank', required=True)
-    parser.add_argument('Head_Injury', help='Head_Injury cannot be blank', required=True)
-    parser.add_argument('Obesity', help='Obesity cannot be blank', required=True)
-    parser.add_argument('Chronic_Pain', help='Chronic_Pain cannot be blank', required=True)
-    parser.add_argument('Fractures', help='Fractures cannot be blank', required=True)
-    parser.add_argument('Infection_Dissease', help='Infection_Dissease cannot be blank', required=True)
-    parser.add_argument('Fever', help='Fever cannot be blank', required=True)
-    parser.add_argument('Lower_Extremety', help='Lower_Extremety cannot be blank', required=True)
-    parser.add_argument('Nausea', help='Nausea cannot be blank', required=True)
+    parser.add_argument('PC_Ringing_in_Ears', help='PC_Ringing_in_Ears cannot be blank', required=True)
+    parser.add_argument('PC_Allergy_to_Latex', help='PC_Allergy_to_Latex cannot be blank', required=True)
+    parser.add_argument('PC_Head_Injury', help='PC_Head_Injury cannot be blank', required=True)
+    parser.add_argument('PC_Obesity', help='PC_Obesity cannot be blank', required=True)
+    parser.add_argument('PC_Chronic_Pain', help='PC_Chronic_Pain cannot be blank', required=True)
+    parser.add_argument('PC_Fractures', help='PC_Fractures cannot be blank', required=True)
+    parser.add_argument('PC_Infection_Dissease', help='PC_Infection_Dissease cannot be blank', required=True)
+    parser.add_argument('PC_Fever', help='PC_Fever cannot be blank', required=True)
+    parser.add_argument('PC_Lower_Extremety', help='PC_Lower_Extremety cannot be blank', required=True)
+    parser.add_argument('PC_Nausea', help='PC_Nausea cannot be blank', required=True)
 
 
     @jwt_required
-    def get(self, user_id):
-        preexistingcondition = PreConditionModel.find_by_id(user_id)
+    def get(self, PC_user_id):
+        preexistingcondition = PreConditionModel.find_by_id(PC_user_id)
         if  preexistingcondition:
             return preexistingcondition.json()
         return {'message': 'Item not found'}, 404
     @jwt_required
-    def post(self, user_id):
-        if PreConditionModel.find_by_id(user_id):
+    def post(self, PC_user_id):
+        if PreConditionModel.find_by_id(PC_user_id):
             return {'message': 'Item already exists'}
 
         data = PreexistingCondition.parser.parse_args()
-        preexistingcondition = PreConditionModel(user_id, **data)
+        preexistingcondition = PreConditionModel(PC_user_id, **data)
 
         try:
 
@@ -75,64 +75,64 @@ class PreexistingCondition(Resource):
         return preexistingcondition.json(), 201
 
     @jwt_required
-    def delete(self,user_id):
-        preexistingcondition = PreConditionModel.find_by_id(user_id)
+    def delete(self,PC_user_id):
+        preexistingcondition = PreConditionModel.find_by_id(PC_user_id)
         if preexistingcondition:
             preexistingcondition.delete_from_db()
             return {'message': 'Item deleted.'}
         return {'message': ' Item not Found'}
 
     @jwt_required
-    def put(self, user_id):
+    def put(self, PC_user_id):
         data = PreexistingCondition.parser.parse_args()
 
-        preexistingcondition = PreConditionModel.find_by_id(user_id)
+        preexistingcondition = PreConditionModel.find_by_id(PC_user_id)
         if preexistingcondition:
-                preexistingcondition.Race = data['Race']
-                preexistingcondition.Smoking = data['Smoking']
-                preexistingcondition.Alcohol = data['Alcohol']
-                preexistingcondition.Diabetes = data['Diabetes']
-                preexistingcondition.Hear = data['Hear']
-                preexistingcondition.Blood_Pressure = data['Blood_Pressure']
-                preexistingcondition.Chest_Pain = data['Chest_Pain']
-                preexistingcondition.Stroke = data['Stroke']
-                preexistingcondition.Kidney  = data['Kidney']
-                preexistingcondition.Blood_Clot = data['Blood_Clot']
-                preexistingcondition.Metal_implants = data['Metal_implants']
-                preexistingcondition.Asthma = data['Asthma']
-                preexistingcondition.Cancer = data['Cancer']
-                preexistingcondition.Difficulty_Swallowing = data['Difficulty_Swallowing']
-                preexistingcondition.Vascular_Problems = data['Vascular_Problems']
-                preexistingcondition.Peripheral_Neuropathy = data['Peripheral_Neuropathy']
-                preexistingcondition.Weightloss = data['Weightloss']
-                preexistingcondition.Double_Vision = data['Double_Vision']
-                preexistingcondition.Night_Sweats = data['Night_Sweats']
-                preexistingcondition.Night_Pain = data['Night_Pain']
-                preexistingcondition.Neurologic_Condition = data['Neurologic_Condition']
-                preexistingcondition.Skin_Disease = data['Skin_Disease']
-                preexistingcondition.Spinal_Cord_Injury = data['Spinal_Cord_Injury']
-                preexistingcondition.Degenerative_Joint_Disease = data['Degenerative_Joint_Disease']
-                preexistingcondition.Sexual_Dysfunction = data['Sexual_Dysfunction']
-                preexistingcondition.Bladder = data['Bladder']
-                preexistingcondition.Groin_Numbness = data['Groin_Numbness']
-                preexistingcondition.Arthritis = data['Arthritis']
-                preexistingcondition.Osteoporosis = data['Osteoporosis']
-                preexistingcondition.Phsychological_Problems = data['Phsychological_Problems']
-                preexistingcondition.Seizures = data['Seizures']
-                preexistingcondition.Dizziness = data['Dizziness']
-                preexistingcondition.Ringing_in_Ears = data['Ringing_in_Ears']
-                preexistingcondition.Allergy_to_Latex   = data['Allergy_to_Latex']
-                preexistingcondition.Head_Injury = data['Head_Injury']
-                preexistingcondition.Obesity = data['Obesity']
-                preexistingcondition.Chronic_Pain = data['Chronic_Pain']
-                preexistingcondition.Fractures  = data['Fractures']
-                preexistingcondition.Infection_Dissease  = data['Infection_Dissease']
-                preexistingcondition.Fever = data['Fever']
-                preexistingcondition.Lower_Extremety = data['Lower_Extremety']
-                preexistingcondition.Nausea = data['Nausea']
+                preexistingcondition.PC_Race = data['PC_Race']
+                preexistingcondition.PC_Smoking = data['PC_Smoking']
+                preexistingcondition.PC_Alcohol = data['PC_Alcohol']
+                preexistingcondition.PC_Diabetes = data['PC_Diabetes']
+                preexistingcondition.PC_Hear = data['PC_Hear']
+                preexistingcondition.PC_Blood_Pressure = data['PC_Blood_Pressure']
+                preexistingcondition.PC_Chest_Pain = data['PC_Chest_Pain']
+                preexistingcondition.PC_Stroke = data['PC_Stroke']
+                preexistingcondition.PC_Kidney  = data['PC_Kidney']
+                preexistingcondition.PC_Blood_Clot = data['PC_Blood_Clot']
+                preexistingcondition.PC_Metal_implants = data['PC_Metal_implants']
+                preexistingcondition.PC_Asthma = data['PC_Asthma']
+                preexistingcondition.PC_Cancer = data['PC_Cancer']
+                preexistingcondition.PC_Difficulty_Swallowing = data['PC_Difficulty_Swallowing']
+                preexistingcondition.PC_Vascular_Problems = data['PC_Vascular_Problems']
+                preexistingcondition.PC_Peripheral_Neuropathy = data['PC_Peripheral_Neuropathy']
+                preexistingcondition.PC_Weightloss = data['PC_Weightloss']
+                preexistingcondition.PC_Double_Vision = data['PC_Double_Vision']
+                preexistingcondition.PC_Night_Sweats = data['PC_Night_Sweats']
+                preexistingcondition.PC_Night_Pain = data['PC_Night_Pain']
+                preexistingcondition.PC_Neurologic_Condition = data['PC_Neurologic_Condition']
+                preexistingcondition.PC_Skin_Disease = data['PC_Skin_Disease']
+                preexistingcondition.PC_Spinal_Cord_Injury = data['PC_Spinal_Cord_Injury']
+                preexistingcondition.PC_Degenerative_Joint_Disease = data['PC_Degenerative_Joint_Disease']
+                preexistingcondition.PC_Sexual_Dysfunction = data['PC_Sexual_Dysfunction']
+                preexistingcondition.PC_Bladder = data['PC_Bladder']
+                preexistingcondition.PC_Groin_Numbness = data['PC_Groin_Numbness']
+                preexistingcondition.PC_Arthritis = data['PC_Arthritis']
+                preexistingcondition.PC_Osteoporosis = data['PC_Osteoporosis']
+                preexistingcondition.PC_Phsychological_Problems = data['PC_Phsychological_Problems']
+                preexistingcondition.PC_Seizures = data['PC_Seizures']
+                preexistingcondition.PC_Dizziness = data['PC_Dizziness']
+                preexistingcondition.PC_Ringing_in_Ears = data['PC_Ringing_in_Ears']
+                preexistingcondition.PC_Allergy_to_Latex   = data['PC_Allergy_to_Latex']
+                preexistingcondition.PC_Head_Injury = data['PC_Head_Injury']
+                preexistingcondition.PC_Obesity = data['PC_Obesity']
+                preexistingcondition.PC_Chronic_Pain = data['PC_Chronic_Pain']
+                preexistingcondition.PC_Fractures  = data['PC_Fractures']
+                preexistingcondition.PC_Infection_Dissease  = data['PC_Infection_Dissease']
+                preexistingcondition.PC_Fever = data['PC_Fever']
+                preexistingcondition.PC_Lower_Extremety = data['PC_Lower_Extremety']
+                preexistingcondition.PC_Nausea = data['PC_Nausea']
 
         else:
-            preexistingcondition = PreConditionModel(user_id, **data)
+            preexistingcondition = PreConditionModel(PC_user_id, **data)
         preexistingcondition.save_to_db()
 
         return preexistingcondition.json(),201

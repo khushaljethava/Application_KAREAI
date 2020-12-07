@@ -29,15 +29,15 @@ class RetinaUpload(Resource):
 
 
     @jwt_required
-    def post(self,user_id):
+    def post(self,RU_user_id):
         def allowed_file(filename):
             return '.' in filename and \
                 filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 
-        userid = get_jwt_identity()
-        folder = f"user_{userid}"
+        RU_userid = get_jwt_identity()
+        folder = f"user_{RU_userid}"
 
         file = request.files['inputFile']
 
@@ -53,14 +53,14 @@ class RetinaUpload(Resource):
 
             fpath = os.path.join(Temp_FOLDER,folder,filename)
             result = ProcessRetina(fpath)
-            if result['prediction'] == "Infected":
+            if result['RU_prediction'] == "Infected":
                 file.save(os.path.join(Infected,filename) )
             else:
                 file.save(os.path.join(Uninfected,filename))
             path = os.path.join(Temp_FOLDER,folder)
             shutil.rmtree(path)
 
-            retinaupload = RetinaUploadModel(user_id,name=file.filename,**result,report=file.read())
+            retinaupload = RetinaUploadModel(RU_user_id,RU_name=file.filename,**result,RU_report=file.read())
             try:
 
                 retinaupload.save_to_db()
@@ -72,14 +72,14 @@ class RetinaUpload(Resource):
 
         return result,201
 
-    def get(self,user_id):
-        retinaupload = RetinaUploadModel.find_by_id(user_id)
+    def get(self,RU_user_id):
+        retinaupload = RetinaUploadModel.find_by_id(RU_user_id)
         if retinaupload:
             return retinaupload.json()
         return {'message':'Item not found'}, 404
 
-    def delete(self,user_id):
-        ratinaupload = RetinaUploadModel.find_by_id(user_id)
+    def delete(self,RU_user_id):
+        ratinaupload = RetinaUploadModel.find_by_id(RU_user_id)
         if ratinaupload:
             ratinaupload.delete_from_db()
             return {'message': 'Item deleted successfully.'}

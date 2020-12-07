@@ -6,157 +6,157 @@ from model.user import UserModel
 class PreConditionModel(db.Model):
     __tablename__ = 'PreexistingCondition'
 
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    Race = db.Column(db.String(120), nullable = False)
-    Smoking = db.Column(db.String(120), nullable = False)
-    Alcohol = db.Column(db.String(120), nullable = False)
-    Diabetes = db.Column(db.String(120), nullable = False)
-    Hear = db.Column(db.String(120), nullable = False)
-    Blood_Pressure = db.Column(db.String(120), nullable = False)
-    Chest_Pain = db.Column(db.String(120), nullable = False)
-    Stroke =  db.Column(db.String(120), nullable = False)
-    Kidney  = db.Column(db.String(120), nullable = False)
-    Blood_Clot = db.Column(db.String(120), nullable = False)
-    Metal_implants = db.Column(db.String(120), nullable = False)
-    Asthma = db.Column(db.String(120), nullable = False)
-    Cancer = db.Column(db.String(120), nullable = False)
-    Difficulty_Swallowing = db.Column(db.String(120), nullable = False)
-    Vascular_Problems = db.Column(db.String(120), nullable = False)
-    Peripheral_Neuropathy = db.Column(db.String(120), nullable = False)
-    Weightloss = db.Column(db.String(120), nullable = False)
-    Double_Vision = db.Column(db.String(120), nullable = False)
-    Night_Sweats = db.Column(db.String(120), nullable = False)
-    Night_Pain = db.Column(db.String(120), nullable = False)
-    Neurologic_Condition = db.Column(db.String(120), nullable = False)
-    Skin_Disease = db.Column(db.String(120), nullable = False)
-    Spinal_Cord_Injury = db.Column(db.String(120), nullable = False)
-    Degenerative_Joint_Disease = db.Column(db.String(120), nullable = False)
-    Sexual_Dysfunction = db.Column(db.String(120), nullable = False)
-    Bladder = db.Column(db.String(120), nullable = False)
-    Groin_Numbness = db.Column(db.String(120), nullable = False)
-    Arthritis = db.Column(db.String(120), nullable = False)
-    Osteoporosis = db.Column(db.String(120), nullable = False)
-    Phsychological_Problems = db.Column(db.String(120), nullable = False)
-    Seizures = db.Column(db.String(120), nullable = False)
-    Dizziness = db.Column(db.String(120), nullable = False)
-    Ringing_in_Ears = db.Column(db.String(120), nullable = False)
-    Allergy_to_Latex   = db.Column(db.String(120), nullable = False)
-    Head_Injury = db.Column(db.String(120), nullable = False)
-    Obesity = db.Column(db.String(120), nullable = False)
-    Chronic_Pain = db.Column(db.String(120), nullable = False)
-    Fractures  = db.Column(db.String(120), nullable = False)
-    Infection_Dissease  = db.Column(db.String(120), nullable = False)
-    Fever = db.Column(db.String(120), nullable = False)
-    Lower_Extremety = db.Column(db.String(120), nullable = False)
-    Nausea = db.Column(db.String(120), nullable = False)
+    PC_id = db.Column(db.Integer, primary_key=True)
+    PC_user_id = db.Column(db.Integer,db.ForeignKey('users.u_id'))
+    PC_Race = db.Column(db.String(120), nullable = False)
+    PC_Smoking = db.Column(db.String(120), nullable = False)
+    PC_Alcohol = db.Column(db.String(120), nullable = False)
+    PC_Diabetes = db.Column(db.String(120), nullable = False)
+    PC_Hear = db.Column(db.String(120), nullable = False)
+    PC_Blood_Pressure = db.Column(db.String(120), nullable = False)
+    PC_Chest_Pain = db.Column(db.String(120), nullable = False)
+    PC_Stroke =  db.Column(db.String(120), nullable = False)
+    PC_Kidney  = db.Column(db.String(120), nullable = False)
+    PC_Blood_Clot = db.Column(db.String(120), nullable = False)
+    PC_Metal_implants = db.Column(db.String(120), nullable = False)
+    PC_Asthma = db.Column(db.String(120), nullable = False)
+    PC_Cancer = db.Column(db.String(120), nullable = False)
+    PC_Difficulty_Swallowing = db.Column(db.String(120), nullable = False)
+    PC_Vascular_Problems = db.Column(db.String(120), nullable = False)
+    PC_Peripheral_Neuropathy = db.Column(db.String(120), nullable = False)
+    PC_Weightloss = db.Column(db.String(120), nullable = False)
+    PC_Double_Vision = db.Column(db.String(120), nullable = False)
+    PC_Night_Sweats = db.Column(db.String(120), nullable = False)
+    PC_Night_Pain = db.Column(db.String(120), nullable = False)
+    PC_Neurologic_Condition = db.Column(db.String(120), nullable = False)
+    PC_Skin_Disease = db.Column(db.String(120), nullable = False)
+    PC_Spinal_Cord_Injury = db.Column(db.String(120), nullable = False)
+    PC_Degenerative_Joint_Disease = db.Column(db.String(120), nullable = False)
+    PC_Sexual_Dysfunction = db.Column(db.String(120), nullable = False)
+    PC_Bladder = db.Column(db.String(120), nullable = False)
+    PC_Groin_Numbness = db.Column(db.String(120), nullable = False)
+    PC_Arthritis = db.Column(db.String(120), nullable = False)
+    PC_Osteoporosis = db.Column(db.String(120), nullable = False)
+    PC_Phsychological_Problems = db.Column(db.String(120), nullable = False)
+    PC_Seizures = db.Column(db.String(120), nullable = False)
+    PC_Dizziness = db.Column(db.String(120), nullable = False)
+    PC_Ringing_in_Ears = db.Column(db.String(120), nullable = False)
+    PC_Allergy_to_Latex   = db.Column(db.String(120), nullable = False)
+    PC_Head_Injury = db.Column(db.String(120), nullable = False)
+    PC_Obesity = db.Column(db.String(120), nullable = False)
+    PC_Chronic_Pain = db.Column(db.String(120), nullable = False)
+    PC_Fractures  = db.Column(db.String(120), nullable = False)
+    PC_Infection_Dissease  = db.Column(db.String(120), nullable = False)
+    PC_Fever = db.Column(db.String(120), nullable = False)
+    PC_Lower_Extremety = db.Column(db.String(120), nullable = False)
+    PC_Nausea = db.Column(db.String(120), nullable = False)
 
     users = db.relationship('UserModel')
 
 
-    def __init__(self,user_id,Race, Smoking, Alcohol, Diabetes, Hear, Blood_Pressure, Chest_Pain, Stroke,
-         Kidney, Blood_Clot, Metal_implants, Asthma, Cancer, Difficulty_Swallowing, Vascular_Problems,
-         Peripheral_Neuropathy, Weightloss, Double_Vision, Night_Sweats, Night_Pain, Neurologic_Condition,
-          Skin_Disease, Spinal_Cord_Injury, Degenerative_Joint_Disease, Sexual_Dysfunction, Bladder,
-          Groin_Numbness, Arthritis, Osteoporosis, Phsychological_Problems, Seizures, Dizziness,
-          Ringing_in_Ears, Allergy_to_Latex, Head_Injury, Obesity, Chronic_Pain, Fractures,
-          Infection_Dissease, Fever, Lower_Extremety, Nausea):
+    def __init__(self,PC_user_id,PC_Race, PC_Smoking, PC_Alcohol, PC_Diabetes, PC_Hear, PC_Blood_Pressure, PC_Chest_Pain, PC_Stroke,
+         PC_Kidney, PC_Blood_Clot, PC_Metal_implants, PC_Asthma, PC_Cancer, PC_Difficulty_Swallowing, PC_Vascular_Problems,
+         PC_Peripheral_Neuropathy, PC_Weightloss, PC_Double_Vision, PC_Night_Sweats, PC_Night_Pain, PC_Neurologic_Condition,
+          PC_Skin_Disease, PC_Spinal_Cord_Injury, PC_Degenerative_Joint_Disease, PC_Sexual_Dysfunction, PC_Bladder,
+          PC_Groin_Numbness, PC_Arthritis, PC_Osteoporosis, PC_Phsychological_Problems, PC_Seizures, PC_Dizziness,
+          PC_Ringing_in_Ears, PC_Allergy_to_Latex, PC_Head_Injury, PC_Obesity, PC_Chronic_Pain, PC_Fractures,
+          PC_Infection_Dissease, PC_Fever, PC_Lower_Extremety, PC_Nausea):
 
 
-        self.user_id = user_id
-        self.Race = Race
-        self.Smoking = Smoking
-        self.Alcohol = Alcohol
-        self.Diabetes = Diabetes
-        self.Hear = Hear
-        self.Blood_Pressure = Blood_Pressure
-        self.Chest_Pain = Chest_Pain
-        self.Stroke =  Stroke
-        self.Kidney  = Kidney
-        self.Blood_Clot = Blood_Clot
-        self.Metal_implants = Metal_implants
-        self.Asthma = Asthma
-        self.Cancer = Cancer
-        self.Difficulty_Swallowing = Difficulty_Swallowing
-        self.Vascular_Problems = Vascular_Problems
-        self.Peripheral_Neuropathy = Peripheral_Neuropathy
-        self.Weightloss = Weightloss
-        self.Double_Vision = Double_Vision
-        self.Night_Sweats = Night_Sweats
-        self.Night_Pain = Night_Pain
-        self.Neurologic_Condition = Neurologic_Condition
-        self.Skin_Disease = Skin_Disease
-        self.Spinal_Cord_Injury = Spinal_Cord_Injury
-        self.Degenerative_Joint_Disease = Degenerative_Joint_Disease
-        self.Sexual_Dysfunction = Sexual_Dysfunction
-        self.Bladder = Bladder
-        self.Groin_Numbness = Groin_Numbness
-        self.Arthritis = Arthritis
-        self.Osteoporosis = Osteoporosis
-        self.Phsychological_Problems = Phsychological_Problems
-        self.Seizures = Seizures
-        self.Dizziness = Dizziness
-        self.Ringing_in_Ears = Ringing_in_Ears
-        self.Allergy_to_Latex   = Allergy_to_Latex
-        self.Head_Injury = Head_Injury
-        self.Obesity = Obesity
-        self.Chronic_Pain = Chronic_Pain
-        self.Fractures  = Fractures
-        self.Infection_Dissease  = Infection_Dissease
-        self.Fever = Fever
-        self.Lower_Extremety = Lower_Extremety
-        self.Nausea = Nausea
+        self.PC_user_id = PC_user_id
+        self.PC_Race = PC_Race
+        self.PC_Smoking = PC_Smoking
+        self.PC_Alcohol = PC_Alcohol
+        self.PC_Diabetes = PC_Diabetes
+        self.PC_Hear = PC_Hear
+        self.PC_Blood_Pressure = PC_Blood_Pressure
+        self.PC_Chest_Pain = PC_Chest_Pain
+        self.PC_Stroke =  PC_Stroke
+        self.PC_Kidney  = PC_Kidney
+        self.PC_Blood_Clot = PC_Blood_Clot
+        self.PC_Metal_implants = PC_Metal_implants
+        self.PC_Asthma = PC_Asthma
+        self.PC_Cancer = PC_Cancer
+        self.PC_Difficulty_Swallowing = PC_Difficulty_Swallowing
+        self.PC_Vascular_Problems = PC_Vascular_Problems
+        self.PC_Peripheral_Neuropathy = PC_Peripheral_Neuropathy
+        self.PC_Weightloss = PC_Weightloss
+        self.PC_Double_Vision = PC_Double_Vision
+        self.PC_Night_Sweats = PC_Night_Sweats
+        self.PC_Night_Pain = PC_Night_Pain
+        self.PC_Neurologic_Condition = PC_Neurologic_Condition
+        self.PC_Skin_Disease = PC_Skin_Disease
+        self.PC_Spinal_Cord_Injury = PC_Spinal_Cord_Injury
+        self.PC_Degenerative_Joint_Disease = PC_Degenerative_Joint_Disease
+        self.PC_Sexual_Dysfunction = PC_Sexual_Dysfunction
+        self.PC_Bladder = PC_Bladder
+        self.PC_Groin_Numbness = PC_Groin_Numbness
+        self.PC_Arthritis = PC_Arthritis
+        self.PC_Osteoporosis = PC_Osteoporosis
+        self.PC_Phsychological_Problems = PC_Phsychological_Problems
+        self.PC_Seizures = PC_Seizures
+        self.PC_Dizziness = PC_Dizziness
+        self.PC_Ringing_in_Ears = PC_Ringing_in_Ears
+        self.PC_Allergy_to_Latex   = PC_Allergy_to_Latex
+        self.PC_Head_Injury = PC_Head_Injury
+        self.PC_Obesity = PC_Obesity
+        self.PC_Chronic_Pain = PC_Chronic_Pain
+        self.PC_Fractures  = PC_Fractures
+        self.PC_Infection_Dissease  = PC_Infection_Dissease
+        self.PC_Fever = PC_Fever
+        self.PC_Lower_Extremety = PC_Lower_Extremety
+        self.PC_Nausea = PC_Nausea
 
     def json(self):
         return {
-        'Race' : self.Race,
-        'Smoking' : self.Smoking,
-        'Alcohol' :  self.Alcohol,
-        'Diabetes' : self.Diabetes,
-        'Hear' :  self.Hear,
-        'Blood_Pressure' :  self.Blood_Pressure,
-        'Chest_Pain' :  self.Chest_Pain,
-        'Stroke' : self.Stroke,
-         'Kidney': self.Kidney,
-        'Blood_Clot' : self.Blood_Clot,
-        'Metal_implants': self.Metal_implants,
-        'Asthma': self.Asthma,
-        'Cancer': self.Cancer,
-        'Difficulty_Swallowing': self.Difficulty_Swallowing,
-        'Vascular_Problems' : self.Vascular_Problems,
-        'Peripheral_Neuropathy': self.Peripheral_Neuropathy,
-        'Weightloss': self.Weightloss,
-        'Double_Vision': self.Double_Vision,
-        'Night_Sweats': self.Night_Sweats,
-        'Night_Pain' : self.Night_Pain,
-        'Neurologic_Condition': self.Neurologic_Condition,
-        'Skin_Disease': self.Skin_Disease,
-        'Spinal_Cord_Injury': self.Spinal_Cord_Injury,
-        'Degenerative_Joint_Disease': self.Degenerative_Joint_Disease,
-        'Sexual_Dysfunction': self.Sexual_Dysfunction,
-        'Bladder': self.Bladder,
-        'Groin_Numbness': self.Groin_Numbness,
-        'Arthritis': self.Arthritis,
-        'Osteoporosis': self.Osteoporosis,
-        'Phsychological_Problems': self.Phsychological_Problems,
-        'Seizures': self.Seizures,
-        'Dizziness': self.Dizziness,
-        'Ringing_in_Ears': self.Ringing_in_Ears,
-        'Allergy_to_Latex': self.Allergy_to_Latex,
-        'Head_Injury': self.Head_Injury,
-        'Obesity': self.Obesity,
-        'Chronic_Pain': self.Chronic_Pain,
-        'Fractures': self.Fractures,
-        'Infection_Dissease': self.Infection_Dissease,
-        'Fever': self.Fever,
-        'Lower_Extremety': self.Lower_Extremety,
-        'Nausea': self.Nausea
+        'PC_Race' : self.PC_Race,
+        'PC_Smoking' : self.PC_Smoking,
+        'PC_Alcohol' :  self.PC_Alcohol,
+        'PC_Diabetes' : self.PC_Diabetes,
+        'PC_Hear' :  self.PC_Hear,
+        'PC_Blood_Pressure' :  self.PC_Blood_Pressure,
+        'PC_Chest_Pain' :  self.PC_Chest_Pain,
+        'PC_Stroke' : self.PC_Stroke,
+        'PC_Kidney': self.PC_Kidney,
+        'PC_Blood_Clot' : self.PC_Blood_Clot,
+        'PC_Metal_implants': self.PC_Metal_implants,
+        'PC_Asthma': self.PC_Asthma,
+        'PC_Cancer': self.PC_Cancer,
+        'PC_Difficulty_Swallowing': self.PC_Difficulty_Swallowing,
+        'PC_Vascular_Problems' : self.PC_Vascular_Problems,
+        'PC_Peripheral_Neuropathy': self.PC_Peripheral_Neuropathy,
+        'PC_Weightloss': self.PC_Weightloss,
+        'PC_Double_Vision': self.PC_Double_Vision,
+        'PC_Night_Sweats': self.PC_Night_Sweats,
+        'PC_Night_Pain' : self.PC_Night_Pain,
+        'PC_Neurologic_Condition': self.PC_Neurologic_Condition,
+        'PC_Skin_Disease': self.PC_Skin_Disease,
+        'PC_Spinal_Cord_Injury': self.PC_Spinal_Cord_Injury,
+        'PC_Degenerative_Joint_Disease': self.PC_Degenerative_Joint_Disease,
+        'PC_Sexual_Dysfunction': self.PC_Sexual_Dysfunction,
+        'PC_Bladder': self.PC_Bladder,
+        'PC_Groin_Numbness': self.PC_Groin_Numbness,
+        'PC_Arthritis': self.PC_Arthritis,
+        'PC_Osteoporosis': self.PC_Osteoporosis,
+        'PC_Phsychological_Problems': self.PC_Phsychological_Problems,
+        'PC_Seizures': self.PC_Seizures,
+        'PC_Dizziness': self.PC_Dizziness,
+        'PC_Ringing_in_Ears': self.PC_Ringing_in_Ears,
+        'PC_Allergy_to_Latex': self.PC_Allergy_to_Latex,
+        'PC_Head_Injury': self.PC_Head_Injury,
+        'PC_Obesity': self.PC_Obesity,
+        'PC_Chronic_Pain': self.PC_Chronic_Pain,
+        'PC_Fractures': self.PC_Fractures,
+        'PC_Infection_Dissease': self.PC_Infection_Dissease,
+        'PC_Fever': self.PC_Fever,
+        'PC_Lower_Extremety': self.PC_Lower_Extremety,
+        'PC_Nausea': self.PC_Nausea
 }
 
 
     @classmethod
-    def find_by_id(cls, user_id):
-        return cls.query.filter_by(user_id = user_id).first()
+    def find_by_id(cls, PC_user_id):
+        return cls.query.filter_by(PC_user_id = PC_user_id).first()
 
 
     def save_to_db(self):

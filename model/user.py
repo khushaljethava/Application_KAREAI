@@ -4,13 +4,13 @@ from passlib.hash import pbkdf2_sha256 as sha256
 
 class UserModel(db.Model):
     __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(120), unique=True, nullable = False)
-    fullname = db.Column(db.String(120))
-    email = db.Column(db.String(120), unique=True, nullable = False)
-    mobile = db.Column(db.BIGINT(), unique=True, nullable = False)
-    gander = db.Column(db.String(120))
-    age = db.Column(db.Integer())
+    u_id = db.Column(db.Integer, primary_key=True)
+    u_username = db.Column(db.String(120), unique=True, nullable = False)
+    u_fullname = db.Column(db.String(120),nullable = False)
+    u_email = db.Column(db.String(120), unique=True, nullable = False)
+    u_mobile = db.Column(db.BIGINT(), unique=True, nullable = False)
+    u_gender = db.Column(db.String(120),)
+    u_age = db.Column(db.Integer(),)
 
 
     PreexistingCondition = db.relationship('PreConditionModel', lazy='dynamic')
@@ -23,20 +23,26 @@ class UserModel(db.Model):
         db.session.commit()
 
     @classmethod
-    def find_by_username(cls, username):
-        return cls.query.filter_by(username=username).first()
+    def find_by_username(cls, u_username):
+        return cls.query.filter_by(u_username=u_username).first()
 
     @classmethod
-    def find_by_mobile(cls, mobile):
-        return cls.query.filter_by(mobile=mobile).first()
+    def find_by_mobile(cls, u_mobile):
+        return cls.query.filter_by(u_mobile=u_mobile).first()
 
     @classmethod
-    def find_by_email(cls, email):
-        return cls.query.filter_by(email=email).first()
+    def find_by_email(cls, u_email):
+        return cls.query.filter_by(u_email=u_email).first()
 
     @classmethod
-    def find_by_id(cls, id):
-        return cls.query.filter_by(id = id).first()
+    def find_by_id(cls, u_id):
+        return cls.query.filter_by(u_id = u_id).first()
+
+    def json(self):
+        return{
+        'u_id' : self.u_id,
+        'u_username' : self.u_username
+        }
 
     @staticmethod
     def generate_hash(password):

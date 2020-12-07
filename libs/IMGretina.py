@@ -22,8 +22,8 @@ def ProcessRetina(IMG):
     prediction = indices[predictioned_class]
 
     predict = {
-        "prediction": prediction,
-        "accuracy": accuracy
+        "RU_prediction": prediction,
+        "RU_accuracy": accuracy
         }
 
     return predict

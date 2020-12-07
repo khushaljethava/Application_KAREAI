@@ -4,25 +4,25 @@ from model.user import UserModel
 class LabReportUploadModel(db.Model):
     __tablename__ = 'LabReportFiles'
 
-    id = db.Column(db.Integer,primary_key=True)
-    user_id  = db.Column(db.Integer,db.ForeignKey('users.id'))
-    name = db.Column(db.String(300))
-    report = db.Column(db.LargeBinary(length=(2**32)-1))
+    LU_id = db.Column(db.Integer,primary_key=True)
+    LU_user_id  = db.Column(db.Integer,db.ForeignKey('users.u_id'))
+    LU_name = db.Column(db.String(300))
+    LU_report = db.Column(db.LargeBinary(length=(2**32)-1))
 
     users = db.relationship('UserModel')
 
-    def __init__(self,user_id,name,report):
+    def __init__(self,LU_user_id,LU_name,LU_report):
 
-                 self.user_id = user_id
-                 self.name = name
-                 self.report = report
+                 self.LU_user_id = LU_user_id
+                 self.LU_name = LU_name
+                 self.LU_report = LU_report
 
 
 
 
     @classmethod
-    def find_by_id(cls, user_id):
-        return cls.query.filter_by(user_id = user_id).first()
+    def find_by_id(cls, LU_user_id):
+        return cls.query.filter_by(LU_user_id = LU_user_id).first()
 
 
     def save_to_db(self):

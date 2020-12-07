@@ -1,5 +1,6 @@
 from flask_restful import Resource, reqparse
 from model.user import UserModel, RevokedTokenModel
+from flask import jsonify
 
 
 from flask_jwt_extended import (
@@ -8,45 +9,44 @@ from flask_jwt_extended import (
 )
 
 reg_parser = reqparse.RequestParser()
-reg_parser.add_argument('username', help='Username cannot be blank', required=True)
-reg_parser.add_argument('fullname')
-reg_parser.add_argument('email', help='Email cannot be blank', required=True)
-reg_parser.add_argument('mobile', help='Mobile cannot be blank', required=True)
-reg_parser.add_argument('gander')
-reg_parser.add_argument('age')
+reg_parser.add_argument('u_username', help='Username cannot be blank', required=True)
+reg_parser.add_argument('u_fullname')
+reg_parser.add_argument('u_email', help='Email cannot be blank', required=True)
+reg_parser.add_argument('u_mobile', help='Mobile cannot be blank', required=True)
+reg_parser.add_argument('u_gender')
+reg_parser.add_argument('u_age')
 
 
 log_parser = reqparse.RequestParser()
-log_parser.add_argument('mobile', help='Mobile cannot be blank' , required=True)
+log_parser.add_argument('u_mobile', help='Mobile cannot be blank' , required=True)
 
 class UserRegistration(Resource):
 
     def post(self):
         data = reg_parser.parse_args()
-        if UserModel.find_by_username(data['username']):
-            return {'message': 'User {} already exists'.format(data['username'])}
-        if UserModel.find_by_mobile(data['mobile']):
-            return {'message': 'Mobile Number {} already exists'.format(data['mobile'])}
-        if UserModel.find_by_email(data['email']):
-            return {'message': 'Email {} already exists'.format(data['email'])}
+        if UserModel.find_by_username(data['u_username']):
+            return {'message': 'User {} already exists'.format(data['u_username'])}
+        if UserModel.find_by_mobile(data['u_mobile']):
+            return {'message': 'Mobile Number {} already exists'.format(data['u_mobile'])}
+        if UserModel.find_by_email(data['u_email']):
+            return {'message': 'Email {} already exists'.format(data['u_email'])}
 
 
         new_user = UserModel(
-        username=data['username'],
-        fullname=data['fullname'],
-        email=data['email'],
-        mobile=data['mobile'],
-        gander=data['gander'],
-        age=data['age'])
-
+        u_username=data['u_username'],
+        u_fullname=data['u_fullname'],
+        u_email=data['u_email'],
+        u_mobile=data['u_mobile'],
+        u_gender=data['u_gender'],
+        u_age=data['u_age'])
+        print(new_user)
         try:
             new_user.save_to_db()
-            access_token = create_access_token(identity = data['username'])
-            refresh_token = create_refresh_token(identity = data['username'])
+            access_token = create_access_token(identity = data['u_mobile'])
+            refresh_token = create_refresh_token(identity = data['u_mobile'])
             return {
-            'message': 'User {} was created successfully'.format(data['username']),
-             'access_token': access_token,
-            'refresh_token': refresh_token
+            'message': 'User {} was created successfully'.format(data['u_mobile']),
+             'access_token': access_token
             }
         except:
             return {'message':'Something went wrong'}, 500
@@ -55,19 +55,27 @@ class UserLogin(Resource):
 
     def post(self):
         data = log_parser.parse_args()
-        current_user = UserModel.find_by_mobile(data['mobile'])
+        current_user = UserModel.find_by_mobile(data['u_mobile'])
         if not current_user:
-            return {'message': 'User {} doess\'t exist'.format(data['mobile'])}
+            return {'message': 'User {} doess\'t exist'.format(data['u_mobile'])}
 
-        if UserModel.find_by_mobile(data['mobile']):
-            access_token = create_access_token(identity = data['mobile'])
-            refresh_token = create_refresh_token(identity = data['mobile'])
-            return {'message': 'Logged in as {}'.format(data['mobile']),
-                'access_token': access_token,
-                'refresh_token': refresh_token
+        if UserModel.find_by_mobile(data['u_mobile']):
+            user =  UserModel.find_by_mobile(data['u_mobile'])
+            access_token = create_access_token(identity = data['u_mobile'])
+            mydict = dict(user.json())
+            #refresh_token = create_refresh_token(identity = data['mobile'])
+            result = {
+            'u_id': mydict["u_id"],
+            'access_token': access_token,
+            'u_username' : mydict["u_username"]
+            }
+            return {
+                    "Status": "Success",
+                    "Response" : result
+
             }
         else:
-            return {'message': 'Wrong Credentialscd '}
+            return {'Status': 'Error '}
 
 
 class UserLogoutAccess(Resource):

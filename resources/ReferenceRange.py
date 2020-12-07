@@ -10,14 +10,14 @@ class ReferenceRange(Resource):
 
 
 
-        #if IRON >= db.session.query(ReferenceRangeModel.Range_Low).filter(ReferenceRangeModel.Lab_Test == 'Iron', ReferenceRangeModel.Gender=='F').first() and IRON <= db.session.query(ReferenceRangeModel.Range_High).filter(ReferenceRangeModel.Lab_Test == 'Iron', ReferenceRangeModel.Gender=='F').first():
+        #if IRON >= db.session.query(ReferenceRangeModel.Range_Low).filter(ReferenceRangeModel.Lab_Test == 'Iron', ReferenceRangeModel.gender=='F').first() and IRON <= db.session.query(ReferenceRangeModel.Range_High).filter(ReferenceRangeModel.Lab_Test == 'Iron', ReferenceRangeModel.gender=='F').first():
         #    print('Working')
 
 
 
 #        lowrange = ReferenceRangeModel.Compare_IRON()
-        lowrange = db.session.query(ReferenceRangeModel.Range_Low).filter(ReferenceRangeModel.Lab_Test == 'IRON' , ReferenceRangeModel.Gender=='F').first()
-        highrange = db.session.query(ReferenceRangeModel.Range_High).filter(ReferenceRangeModel.Lab_Test == 'IRON', ReferenceRangeModel.Gender=='F').first()
+        lowrange = db.session.query(ReferenceRangeModel.RR_Range_Low).filter(ReferenceRangeModel.RR_Lab_Test == 'IRON' , ReferenceRangeModel.RR_gender=='F').first()
+        highrange = db.session.query(ReferenceRangeModel.RR_Range_High).filter(ReferenceRangeModel.RR_Lab_Test == 'IRON', ReferenceRangeModel.RR_gender=='F').first()
         print(lowrange)
         highrange = float(pd.to_numeric(highrange))
         lowrange = float(pd.to_numeric(lowrange))

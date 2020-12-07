@@ -150,7 +150,7 @@ class LabReportUpload(Resource):
 
 
     @jwt_required
-    def post(self,user_id):
+    def post(self,LU_user_id):
         def solve(lis):
             for x in lis:
                 try:
@@ -170,8 +170,8 @@ class LabReportUpload(Resource):
 
 
 
-        userid = get_jwt_identity()
-        folder = f"user_{userid}"
+        LU_userid = get_jwt_identity()
+        folder = f"user_{LU_userid}"
 
         file = request.files['inputFile']
 
@@ -281,606 +281,605 @@ class LabReportUpload(Resource):
 
         if 'HPLC' in extracted_Dictionary.keys():
             HPLC = extracted_Dictionary['HPLC']
-            Report_Dictionary["HPLC"] = HPLC
+            Report_Dictionary["LR_HPLC"] = HPLC
         else:
-            Report_Dictionary["HPLC"] = None
+            Report_Dictionary["LR_HPLC"] = None
         if 'AVERAGE BLOOD GLUCOSE (ABG)' in extracted_Dictionary.keys():
             AVERAGE_BLOOD_GLUCOSE = extracted_Dictionary['AVERAGE BLOOD GLUCOSE (ABG)']
-            Report_Dictionary["AVERAGE_BLOOD_GLUCOSE"] = AVERAGE_BLOOD_GLUCOSE
+            Report_Dictionary["LR_AVERAGE_BLOOD_GLUCOSE"] = AVERAGE_BLOOD_GLUCOSE
         else:
-            Report_Dictionary["AVERAGE_BLOOD_GLUCOSE"] = None
+            Report_Dictionary["LR_AVERAGE_BLOOD_GLUCOSE"] = None
         if 'TOTAL LEUCOCYTES COUNT' in extracted_Dictionary.keys():
             TOTAL_LEUCOCYTES_COUNT = extracted_Dictionary['TOTAL LEUCOCYTES COUNT']
-            Report_Dictionary["TOTAL_LEUCOCYTES_COUNT"] = TOTAL_LEUCOCYTES_COUNT
+            Report_Dictionary["LR_TOTAL_LEUCOCYTES_COUNT"] = TOTAL_LEUCOCYTES_COUNT
         else:
-            Report_Dictionary["TOTAL_LEUCOCYTES_COUNT"] = None
+            Report_Dictionary["LR_TOTAL_LEUCOCYTES_COUNT"] = None
 
         if 'NEUTROPHILS' in extracted_Dictionary.keys():
             NEUTROPHILS = extracted_Dictionary['NEUTROPHILS']
-            Report_Dictionary["NEUTROPHILS"] = NEUTROPHILS
+            Report_Dictionary["LR_NEUTROPHILS"] = NEUTROPHILS
         else:
-            Report_Dictionary["NEUTROPHILS"] = None
+            Report_Dictionary["LR_NEUTROPHILS"] = None
 
         if 'LYMPHOCYTE PERCENTAGE' in extracted_Dictionary.keys():
             LYMPHOCYTE_PERCENTAGE = extracted_Dictionary['LYMPHOCYTE PERCENTAGE']
-            Report_Dictionary["LYMPHOCYTE_PERCENTAGE"] = LYMPHOCYTE_PERCENTAGE
+            Report_Dictionary["LR_LYMPHOCYTE_PERCENTAGE"] = LYMPHOCYTE_PERCENTAGE
         else:
-            Report_Dictionary["LYMPHOCYTE_PERCENTAGE"] = None
+            Report_Dictionary["LR_LYMPHOCYTE_PERCENTAGE"] = None
 
         if 'MONOCYTES' in extracted_Dictionary.keys():
             MONOCYTES = extracted_Dictionary['MONOCYTES']
-            Report_Dictionary["MONOCYTES"] = MONOCYTES
+            Report_Dictionary["LR_MONOCYTES"] = MONOCYTES
         else:
-            Report_Dictionary["MONOCYTES"] = None
+            Report_Dictionary["LR_MONOCYTES"] = None
 
         if 'EOSINOPHILS' in extracted_Dictionary.keys():
             EOSINOPHILS = extracted_Dictionary['EOSINOPHILS']
-            Report_Dictionary["EOSINOPHILS"] = EOSINOPHILS
+            Report_Dictionary["LR_EOSINOPHILS"] = EOSINOPHILS
         else:
-            Report_Dictionary["EOSINOPHILS"] = None
+            Report_Dictionary["LR_EOSINOPHILS"] = None
 
         if 'BASOPHILS' in extracted_Dictionary.keys():
             BASOPHILS = extracted_Dictionary['BASOPHILS']
-            Report_Dictionary["BASOPHILS"] = BASOPHILS
+            Report_Dictionary["LR_BASOPHILS"] = BASOPHILS
         else:
-            Report_Dictionary["BASOPHILS"] = None
+            Report_Dictionary["LR_BASOPHILS"] = None
 
         if 'IMMATURE GRANULOCYTE' in extracted_Dictionary.keys():
             IMMATURE_GRANULOCYTE_PERCENTAGE = extracted_Dictionary['IMMATURE GRANULOCYTE']
-            Report_Dictionary["IMMATURE_GRANULOCYTE_PERCENTAGE"] = IMMATURE_GRANULOCYTE_PERCENTAGE
+            Report_Dictionary["LR_IMMATURE_GRANULOCYTE_PERCENTAGE"] = IMMATURE_GRANULOCYTE_PERCENTAGE
         else:
-            Report_Dictionary["IMMATURE_GRANULOCYTE_PERCENTAGE"] = None
+            Report_Dictionary["LR_IMMATURE_GRANULOCYTE_PERCENTAGE"] = None
 
         if 'NEUTROPHILS ABSOLUTE COUNT' in extracted_Dictionary.keys():
             NEUTROPHILS_ABSOLUTE_COUNT = extracted_Dictionary['NEUTROPHILS ABSOLUTE COUNT']
-            Report_Dictionary["NEUTROPHILS_ABSOLUTE_COUNT"] = NEUTROPHILS_ABSOLUTE_COUNT
+            Report_Dictionary["LR_NEUTROPHILS_ABSOLUTE_COUNT"] = NEUTROPHILS_ABSOLUTE_COUNT
         else:
-            Report_Dictionary["NEUTROPHILS_ABSOLUTE_COUNT"] = None
+            Report_Dictionary["LR_NEUTROPHILS_ABSOLUTE_COUNT"] = None
 
         if 'LYMPHOCYTES ABSOLUTE COUNT' in extracted_Dictionary.keys():
             LYMPHOCYTES_ABSOLUTE_COUNT = extracted_Dictionary['LYMPHOCYTES ABSOLUTE COUNT']
-            Report_Dictionary["LYMPHOCYTES_ABSOLUTE_COUNT"] = LYMPHOCYTES_ABSOLUTE_COUNT
+            Report_Dictionary["LR_LYMPHOCYTES_ABSOLUTE_COUNT"] = LYMPHOCYTES_ABSOLUTE_COUNT
         else:
-            Report_Dictionary["LYMPHOCYTES_ABSOLUTE_COUNT"] = None
+            Report_Dictionary["LR_LYMPHOCYTES_ABSOLUTE_COUNT"] = None
 
         if 'MONOCYTES ABSOLUTE COUNT' in extracted_Dictionary.keys():
             MONOCYTES_ABSOLUTE_COUNT = extracted_Dictionary['MONOCYTES ABSOLUTE COUNT']
-            Report_Dictionary["MONOCYTES_ABSOLUTE_COUNT"] = MONOCYTES_ABSOLUTE_COUNT
+            Report_Dictionary["LR_MONOCYTES_ABSOLUTE_COUNT"] = MONOCYTES_ABSOLUTE_COUNT
         else:
-            Report_Dictionary["MONOCYTES_ABSOLUTE_COUNT"] = None
+            Report_Dictionary["LR_MONOCYTES_ABSOLUTE_COUNT"] = None
 
         if 'BASOPHILS ABSOLUTE COUNT' in extracted_Dictionary.keys():
             BASOPHILS_ABSOLUTE_COUNT = extracted_Dictionary['BASOPHILS ABSOLUTE COUNT']
-            Report_Dictionary["BASOPHILS_ABSOLUTE_COUNT"] = BASOPHILS_ABSOLUTE_COUNT
+            Report_Dictionary["LR_BASOPHILS_ABSOLUTE_COUNT"] = BASOPHILS_ABSOLUTE_COUNT
         else:
-            Report_Dictionary["BASOPHILS_ABSOLUTE_COUNT"] = None
+            Report_Dictionary["LR_BASOPHILS_ABSOLUTE_COUNT"] = None
 
         if 'EOSINOPHILS ABSOLUTE COUNT' in extracted_Dictionary.keys():
             EOSINOPHILS_ABSOLUTE_COUNT = extracted_Dictionary['EOSINOPHILS ABSOLUTE COUNT']
-            Report_Dictionary["EOSINOPHILS_ABSOLUTE_COUNT"] = EOSINOPHILS_ABSOLUTE_COUNT
+            Report_Dictionary["LR_EOSINOPHILS_ABSOLUTE_COUNT"] = EOSINOPHILS_ABSOLUTE_COUNT
         else:
-            Report_Dictionary["EOSINOPHILS_ABSOLUTE_COUNT"] = None
+            Report_Dictionary["LR_EOSINOPHILS_ABSOLUTE_COUNT"] = None
 
         if 'IMMATURE GRANULOCYTES(IG)' in extracted_Dictionary.keys():
             IMMATURE_GRANULOCYTES = extracted_Dictionary['IMMATURE GRANULOCYTES(IG)']
-            Report_Dictionary["IMMATURE_GRANULOCYTES"] = IMMATURE_GRANULOCYTES
+            Report_Dictionary["LR_IMMATURE_GRANULOCYTES"] = IMMATURE_GRANULOCYTES
         else:
-            Report_Dictionary["IMMATURE_GRANULOCYTES"] = None
+            Report_Dictionary["LR_IMMATURE_GRANULOCYTES"] = None
 
         if 'TOTAL RBC' in extracted_Dictionary.keys():
             TOTAL_RBC = extracted_Dictionary['TOTAL RBC']
-            Report_Dictionary["TOTAL_RBC"] = TOTAL_RBC
+            Report_Dictionary["LR_TOTAL_RBC"] = TOTAL_RBC
         else:
-            Report_Dictionary["TOTAL_RBC"] = None
+            Report_Dictionary["LR_TOTAL_RBC"] = None
 
         if 'NUCLEATED RED BLOOD CELLS' in extracted_Dictionary.keys():
             NUCLEATED_RED_BLOOD_CELLS = extracted_Dictionary['NUCLEATED RED BLOOD CELLS']
-            Report_Dictionary["NUCLEATED_RED_BLOOD_CELLS"] = NUCLEATED_RED_BLOOD_CELL
+            Report_Dictionary["LR_NUCLEATED_RED_BLOOD_CELLS"] = NUCLEATED_RED_BLOOD_CELL
 
         else:
-            Report_Dictionary["NUCLEATED_RED_BLOOD_CELLS"] = None
+            Report_Dictionary["LR_NUCLEATED_RED_BLOOD_CELLS"] = None
 
 
         if 'HEMOGLOBIN' in extracted_Dictionary.keys():
             HEMOGLOBIN = extracted_Dictionary['HEMOGLOBIN']
-            Report_Dictionary["HEMOGLOBIN"] = HEMOGLOBIN
+            Report_Dictionary["LR_HEMOGLOBIN"] = HEMOGLOBIN
         else:
-            Report_Dictionary["HEMOGLOBIN"] = None
+            Report_Dictionary["LR_HEMOGLOBIN"] = None
 
         if 'HEMATOCRIT(PCV)' in extracted_Dictionary.keys():
             HEMATOCRIT = extracted_Dictionary['HEMATOCRIT(PCV)']
-            Report_Dictionary["HEMATOCRIT"] = HEMATOCRIT
+            Report_Dictionary["LR_HEMATOCRIT"] = HEMATOCRIT
         else:
-            Report_Dictionary["HEMATOCRIT"] = None
+            Report_Dictionary["LR_HEMATOCRIT"] = None
 
         if 'MEAN CORPUSCULAR VOLUME(MCV)' in extracted_Dictionary.keys():
             MEAN_CORPUSCULAR_VOLUME = extracted_Dictionary['MEAN CORPUSCULAR VOLUME(MCV)']
-            Report_Dictionary["MEAN_CORPUSCULAR_VOLUME"] = MEAN_CORPUSCULAR_VOLUME
+            Report_Dictionary["LR_MEAN_CORPUSCULAR_VOLUME"] = MEAN_CORPUSCULAR_VOLUME
         else:
-            Report_Dictionary["MEAN_CORPUSCULAR_VOLUME"] = None
+            Report_Dictionary["LR_MEAN_CORPUSCULAR_VOLUME"] = None
 
         if 'MEAN CORPUSCULAR HEMOGLOBIN(MCH)' in extracted_Dictionary.keys():
             MEAN_CORPUSCULAR_HEMOGLOBIN = extracted_Dictionary['MEAN CORPUSCULAR HEMOGLOBIN(MCH)']
-            Report_Dictionary["MEAN_CORPUSCULAR_HEMOGLOBIN"] = MEAN_CORPUSCULAR_HEMOGLOBIN
+            Report_Dictionary["LR_MEAN_CORPUSCULAR_HEMOGLOBIN"] = MEAN_CORPUSCULAR_HEMOGLOBIN
         else:
-            Report_Dictionary["MEAN_CORPUSCULAR_HEMOGLOBIN"] = None
+            Report_Dictionary["LR_MEAN_CORPUSCULAR_HEMOGLOBIN"] = None
 
         if 'MEAN CORPHEMOCONC(MCHC)' in extracted_Dictionary.keys():
             MEAN_CORP_HEMO_CONC = extracted_Dictionary['MEAN CORPHEMOCONC(MCHC)']
-            Report_Dictionary["MEAN_CORP_HEMO_CONC"] = MEAN_CORP_HEMO_CONC
+            Report_Dictionary["LR_MEAN_CORP_HEMO_CONC"] = MEAN_CORP_HEMO_CONC
         else:
-            Report_Dictionary["MEAN_CORP_HEMO_CONC"] = None
+            Report_Dictionary["LR_MEAN_CORP_HEMO_CONC"] = None
 
         if 'RED CELL DISTRIBUTION WIDTH SD(RDWSD)' in extracted_Dictionary.keys():
             RED_CELL_DISTRIBUTION_WIDTH_SD = extracted_Dictionary['RED CELL DISTRIBUTION WIDTH SD(RDWSD)']
-            Report_Dictionary["RED_CELL_DISTRIBUTION_WIDTH_SD"] = RED_CELL_DISTRIBUTION_WIDTH_SD
+            Report_Dictionary["LR_RED_CELL_DISTRIBUTION_WIDTH_SD"] = RED_CELL_DISTRIBUTION_WIDTH_SD
         else:
-            Report_Dictionary["RED_CELL_DISTRIBUTION_WIDTH_SD"] = None
+            Report_Dictionary["LR_RED_CELL_DISTRIBUTION_WIDTH_SD"] = None
 
         if 'RED CELL DISTRIBUTION WIDTH (RDWCV)' in extracted_Dictionary.keys():
             RED_CELL_DISTRIBUTION_WIDTH_CV = extracted_Dictionary['RED CELL DISTRIBUTION WIDTH (RDWCV)']
-            Report_Dictionary["RED_CELL_DISTRIBUTION_WIDTH_CV"] = RED_CELL_DISTRIBUTION_WIDTH_CV
+            Report_Dictionary["LR_RED_CELL_DISTRIBUTION_WIDTH_CV"] = RED_CELL_DISTRIBUTION_WIDTH_CV
         else:
-            Report_Dictionary["RED_CELL_DISTRIBUTION_WIDTH_CV"] = None
+            Report_Dictionary["LR_RED_CELL_DISTRIBUTION_WIDTH_CV"] = None
 
         if 'PLATELET DISTRIBUTION WIDTH(PDW)' in extracted_Dictionary.keys():
             PLATELET_DISTRIBUTION_WIDTH = extracted_Dictionary['PLATELET DISTRIBUTION WIDTH(PDW)']
-            Report_Dictionary["PLATELET_DISTRIBUTION_WIDTH"] = PLATELET_DISTRIBUTION_WIDTH
+            Report_Dictionary["LR_PLATELET_DISTRIBUTION_WIDTH"] = PLATELET_DISTRIBUTION_WIDTH
         else:
-            Report_Dictionary["PLATELET_DISTRIBUTION_WIDTH"] = None
+            Report_Dictionary["LR_PLATELET_DISTRIBUTION_WIDTH"] = None
 
         if 'MEAN PLATELET VOLUME(MPV)' in extracted_Dictionary.keys():
             MEAN_PLATELET_VOLUME = extracted_Dictionary['MEAN PLATELET VOLUME(MPV)']
-            Report_Dictionary["MEAN_PLATELET_VOLUME"] = MEAN_PLATELET_VOLUME
+            Report_Dictionary["LR_MEAN_PLATELET_VOLUME"] = MEAN_PLATELET_VOLUME
         else:
-            Report_Dictionary["MEAN_PLATELET_VOLUME"] = None
+            Report_Dictionary["LR_MEAN_PLATELET_VOLUME"] = None
 
         if 'PLATELET COUNT' in extracted_Dictionary.keys():
             PLATELET_COUNT = extracted_Dictionary['PLATELET COUNT']
-            Report_Dictionary["PLATELET_COUNT"] = PLATELET_COUNT
+            Report_Dictionary["LR_PLATELET_COUNT"] = PLATELET_COUNT
         else:
-            Report_Dictionary["PLATELET_COUNT"] = None
+            Report_Dictionary["LR_PLATELET_COUNT"] = None
 
         if 'PLATELET TO LARGE CELL RATIO(PLCR)' in extracted_Dictionary.keys():
             PLATELET_TO_LARGE_CELL_RATIO = extracted_Dictionary['PLATELET TO LARGE CELL RATIO(PLCR)']
-            Report_Dictionary["PLATELET_TO_LARGE_CELL_RATIO"] = PLATELET_TO_LARGE_CELL_RATIO
+            Report_Dictionary["LR_PLATELET_TO_LARGE_CELL_RATIO"] = PLATELET_TO_LARGE_CELL_RATIO
         else:
-            Report_Dictionary["PLATELET_TO_LARGE_CELL_RATIO"] = None
+            Report_Dictionary["LR_PLATELET_TO_LARGE_CELL_RATIO"] = None
 
         if 'PLATELETCRIT(PCT)' in extracted_Dictionary.keys():
             PLATELETCRIT = extracted_Dictionary['PLATELETCRIT(PCT)']
-            Report_Dictionary["PLATELETCRIT"] = PLATELETCRIT
+            Report_Dictionary["LR_PLATELETCRIT"] = PLATELETCRIT
         else:
-            Report_Dictionary["PLATELETCRIT"] = None
+            Report_Dictionary["LR_PLATELETCRIT"] = None
 
         if 'ARSENIC' in extracted_Dictionary.keys():
             ARSENIC = extracted_Dictionary['ARSENIC']
-            Report_Dictionary["ARSENIC"] = ARSENIC
+            Report_Dictionary["LR_ARSENIC"] = ARSENIC
         else:
-            Report_Dictionary["ARSENIC"] = None
+            Report_Dictionary["LR_ARSENIC"] = None
 
 
         if 'CADMIUM' in extracted_Dictionary.keys():
             CADMIUM = extracted_Dictionary['CADMIUM']
-            Report_Dictionary["CADMIUM"] = CADMIUM
+            Report_Dictionary["LR_CADMIUM"] = CADMIUM
         else:
-            Report_Dictionary["CADMIUM"] = None
+            Report_Dictionary["LR_CADMIUM"] = None
 
 
         if 'MERCURY' in extracted_Dictionary.keys():
             MERCURY = extracted_Dictionary['MERCURY']
-            Report_Dictionary["MERCURY"] = MERCURY
+            Report_Dictionary["LR_MERCURY"] = MERCURY
         else:
-            Report_Dictionary["MERCURY"] = None
+            Report_Dictionary["LR_MERCURY"] = None
 
 
         if 'LEAD' in extracted_Dictionary.keys():
             LEAD = extracted_Dictionary['LEAD']
-            Report_Dictionary["LEAD"] = LEAD
+            Report_Dictionary["LR_LEAD"] = LEAD
         else:
-            Report_Dictionary["LEAD"] = None
+            Report_Dictionary["LR_LEAD"] = None
 
 
         if 'CHROMIUM' in extracted_Dictionary.keys():
             CHROMIUM = extracted_Dictionary['CHROMIUM']
-            Report_Dictionary["CHROMIUM"] = CHROMIUM
+            Report_Dictionary["LR_CHROMIUM"] = CHROMIUM
         else:
-            Report_Dictionary["CHROMIUM"] = None
+            Report_Dictionary["LR_CHROMIUM"] = None
 
 
         if 'BARIUM' in extracted_Dictionary.keys():
             BARIUM = extracted_Dictionary['BARIUM']
-            Report_Dictionary["BARIUM"] = BARIUM
+            Report_Dictionary["LR_BARIUM"] = BARIUM
         else:
-            Report_Dictionary["BARIUM"] = None
+            Report_Dictionary["LR_BARIUM"] = None
 
 
         if 'COBALT' in extracted_Dictionary.keys():
             COBALT = extracted_Dictionary['COBALT']
-            Report_Dictionary["COBALT"] = COBALT
+            Report_Dictionary["LR_COBALT"] = COBALT
         else:
-            Report_Dictionary["COBALT"] = None
+            Report_Dictionary["LR_COBALT"] = None
 
 
         if 'CAESIUM' in extracted_Dictionary.keys():
             CAESIUM = extracted_Dictionary['CAESIUM']
-            Report_Dictionary["CAESIUM"] = CAESIUM
+            Report_Dictionary["LR_CAESIUM"] = CAESIUM
         else:
-            Report_Dictionary["CAESIUM"] = None
+            Report_Dictionary["LR_CAESIUM"] = None
 
 
         if 'THALLIUM' in extracted_Dictionary.keys():
             THALLIUM = extracted_Dictionary['THALLIUM']
-            Report_Dictionary["THALLIUM"] = THALLIUM
+            Report_Dictionary["LR_THALLIUM"] = THALLIUM
         else:
-            Report_Dictionary["THALLIUM"] = None
+            Report_Dictionary["LR_THALLIUM"] = None
 
 
         if 'URANIUM' in extracted_Dictionary.keys():
             URANIUM = extracted_Dictionary['URANIUM']
-            Report_Dictionary["URANIUM"] = URANIUM
+            Report_Dictionary["LR_URANIUM"] = URANIUM
         else:
-            Report_Dictionary["URANIUM"] = None
+            Report_Dictionary["LR_URANIUM"] = None
 
 
         if 'STRONTIUM' in extracted_Dictionary.keys():
             STRONTIUM = extracted_Dictionary['STRONTIUM']
-            Report_Dictionary["STRONTIUM"] = STRONTIUM
+            Report_Dictionary["LR_STRONTIUM"] = STRONTIUM
         else:
-            Report_Dictionary["STRONTIUM"] = None
+            Report_Dictionary["LR_STRONTIUM"] = None
 
 
         if 'ANTIMONY' in extracted_Dictionary.keys():
             ANTIMONY = extracted_Dictionary['ANTIMONY']
-            Report_Dictionary["ANTIMONY"] = ANTIMONY
+            Report_Dictionary["LR_ANTIMONY"] = ANTIMONY
         else:
-            Report_Dictionary["ANTIMONY"] = None
+            Report_Dictionary["LR_ANTIMONY"] = None
 
 
         if 'TIN' in extracted_Dictionary.keys():
             TIN = extracted_Dictionary['TIN']
-            Report_Dictionary["TIN"] = TIN
+            Report_Dictionary["LR_TIN"] = TIN
         else:
-            Report_Dictionary["TIN"] = None
+            Report_Dictionary["LR_TIN"] = None
 
 
         if 'MOLYBDENUM' in extracted_Dictionary.keys():
             MOLYBDENUM = extracted_Dictionary['MOLYBDENUM']
-            Report_Dictionary["MOLYBDENUM"] = MOLYBDENUM
+            Report_Dictionary["LR_MOLYBDENUM"] = MOLYBDENUM
         else:
-            Report_Dictionary["MOLYBDENUM"] = None
+            Report_Dictionary["LR_MOLYBDENUM"] = None
 
 
 
         if 'SILVER' in extracted_Dictionary.keys():
             SILVER = extracted_Dictionary['SILVER']
-            Report_Dictionary["SILVER"] = SILVER
+            Report_Dictionary["LR_SILVER"] = SILVER
         else:
-            Report_Dictionary["SILVER"] = None
+            Report_Dictionary["LR_SILVER"] = None
 
 
         if 'VANADIUM' in extracted_Dictionary.keys():
             VANADIUM = extracted_Dictionary['VANADIUM']
-            Report_Dictionary["VANADIUM"] = VANADIUM
+            Report_Dictionary["LR_VANADIUM"] = VANADIUM
         else:
-            Report_Dictionary["VANADIUM"] = None
+            Report_Dictionary["LR_VANADIUM"] = None
 
 
         if 'BERYLLIUM' in extracted_Dictionary.keys():
             BERYLLIUM = extracted_Dictionary['BERYLLIUM']
-            Report_Dictionary["BERYLLIUM"] = BERYLLIUM
+            Report_Dictionary["LR_BERYLLIUM"] = BERYLLIUM
         else:
-            Report_Dictionary["BERYLLIUM"] = None
+            Report_Dictionary["LR_BERYLLIUM"] = None
 
 
 
         if 'BISMUTH' in extracted_Dictionary.keys():
             BISMUTH = extracted_Dictionary['BISMUTH']
-            Report_Dictionary["BISMUTH"] = BISMUTH
+            Report_Dictionary["LR_BISMUTH"] = BISMUTH
         else:
-            Report_Dictionary["BISMUTH"] = None
+            Report_Dictionary["LR_BISMUTH"] = None
 
 
         if 'SELENIUM' in extracted_Dictionary.keys():
             SELENIUM = extracted_Dictionary['SELENIUM']
-            Report_Dictionary["SELENIUM"] = SELENIUM
+            Report_Dictionary["LR_SELENIUM"] = SELENIUM
         else:
-            Report_Dictionary["SELENIUM"] = None
+            Report_Dictionary["LR_SELENIUM"] = None
 
 
         if 'ALUMINIUM' in extracted_Dictionary.keys():
             ALUMINIUM = extracted_Dictionary['ALUMINIUM']
-            Report_Dictionary["ALUMINIUM"] = ALUMINIUM
+            Report_Dictionary["LR_ALUMINIUM"] = ALUMINIUM
         else:
-            Report_Dictionary["ALUMINIUM"] = None
+            Report_Dictionary["LR_ALUMINIUM"] = None
 
 
         if 'NICKEL' in extracted_Dictionary.keys():
             NICKEL = extracted_Dictionary['NICKEL']
-            Report_Dictionary["NICKEL"] = NICKEL
+            Report_Dictionary["LR_NICKEL"] = NICKEL
         else:
-            Report_Dictionary["NICKEL"] = None
+            Report_Dictionary["LR_NICKEL"] = None
 
 
         if 'MANGANESE' in extracted_Dictionary.keys():
             MANGANESE = extracted_Dictionary['MANGANESE']
-            Report_Dictionary["MANGANESE"] = MANGANESE
+            Report_Dictionary["LR_MANGANESE"] = MANGANESE
         else:
-            Report_Dictionary["MANGANESE"] = None
+            Report_Dictionary["LR_MANGANESE"] = None
 
 
         if 'HOMOCYSTEINE' in extracted_Dictionary.keys():
             HOMOCYSTEINE = extracted_Dictionary['HOMOCYSTEINE']
-            Report_Dictionary["HOMOCYSTEINE"] = HOMOCYSTEINE
+            Report_Dictionary["LR_HOMOCYSTEINE"] = HOMOCYSTEINE
         else:
-            Report_Dictionary["HOMOCYSTEINE"] = None
+            Report_Dictionary["LR_HOMOCYSTEINE"] = None
 
 
         if 'CYSTATIN C' in extracted_Dictionary.keys():
             CYSTATIN_C = extracted_Dictionary['CYSTATIN C']
-            Report_Dictionary["CYSTATIN_C"] = CYSTATIN_C
+            Report_Dictionary["LR_CYSTATIN_C"] = CYSTATIN_C
         else:
-            Report_Dictionary["CYSTATIN_C"] = None
+            Report_Dictionary["LR_CYSTATIN_C"] = None
 
         if 'LIPOPROTEIN' in extracted_Dictionary.keys():
             LIPOPROTEIN = extracted_Dictionary['LIPOPROTEIN']
-            Report_Dictionary["LIPOPROTEIN"] = LIPOPROTEIN
+            Report_Dictionary["LR_LIPOPROTEIN"] = LIPOPROTEIN
         else:
-            Report_Dictionary["LIPOPROTEIN"] = None
+            Report_Dictionary["LR_LIPOPROTEIN"] = None
 
 
         if 'VITAMIN B' in extracted_Dictionary.keys():
             VITAMIN_B = extracted_Dictionary['VITAMIN B']
-            Report_Dictionary["VITAMIN_B"] = VITAMIN_B
+            Report_Dictionary["LR_VITAMIN_B"] = VITAMIN_B
         else:
-            Report_Dictionary["VITAMIN_B"] = None
+            Report_Dictionary["LR_VITAMIN_B"] = None
 
 
         if 'APOLIPOPROTEIN A (APOA)' in extracted_Dictionary.keys():
             APOLIPOPROTEIN_A_APOA = extracted_Dictionary['APOLIPOPROTEIN A (APOA)']
-            Report_Dictionary["APOLIPOPROTEIN_A_APOA"] = APOLIPOPROTEIN_A_APOA
+            Report_Dictionary["LR_APOLIPOPROTEIN_A_APOA"] = APOLIPOPROTEIN_A_APOA
         else:
-            Report_Dictionary["APOLIPOPROTEIN_A_APOA"] = None
+            Report_Dictionary["LR_APOLIPOPROTEIN_A_APOA"] = None
 
 
         if 'APOLIPOPROTEIN B (APOB)' in extracted_Dictionary.keys():
             APOLIPOPROTEIN_B_APOB = extracted_Dictionary['APOLIPOPROTEIN B (APOB)']
-            Report_Dictionary["APOLIPOPROTEIN_B_APOB"] = APOLIPOPROTEIN_B_APOB
+            Report_Dictionary["LR_APOLIPOPROTEIN_B_APOB"] = APOLIPOPROTEIN_B_APOB
         else:
-            Report_Dictionary["APOLIPOPROTEIN_B_APOB"] = None
+            Report_Dictionary["LR_APOLIPOPROTEIN_B_APOB"] = None
 
         if 'APO B APO Ai (APO B/A)' in extracted_Dictionary.keys():
             APOB_APOA_RATIO = extracted_Dictionary['APO B APO Ai (APO B/A)']
-            Report_Dictionary["APOB_APOA_RATIO"] = APOB_APOA_RATIO
+            Report_Dictionary["LR_APOB_APOA_RATIO"] = APOB_APOA_RATIO
         else:
-            Report_Dictionary["APOB_APOA_RATIO"] = None
+            Report_Dictionary["LR_APOB_APOA_RATIO"] = None
 
 
 
         if 'HIGH SENSITIVITY CREACTIVE PROTEIN (HSCRP)' in extracted_Dictionary.keys():
             HSCRP = extracted_Dictionary['HIGH SENSITIVITY CREACTIVE PROTEIN (HSCRP)']
-            Report_Dictionary["HSCRP"] = HSCRP
+            Report_Dictionary["LR_HSCRP"] = HSCRP
         else:
-            Report_Dictionary["HSCRP"] = None
+            Report_Dictionary["LR_HSCRP"] = None
 
 
         if 'SERUM COPPER' in extracted_Dictionary.keys():
             SERUM_COPPER = extracted_Dictionary['SERUM COPPER']
-            Report_Dictionary["SERUM_COPPER"] = SERUM_COPPER
+            Report_Dictionary["LR_SERUM_COPPER"] = SERUM_COPPER
         else:
-            Report_Dictionary["SERUM_COPPER"] = None
+            Report_Dictionary["LR_SERUM_COPPER"] = None
 
 
         if 'SERUM ZINC' in extracted_Dictionary.keys():
             SERUM_ZINC = extracted_Dictionary['SERUM ZINC']
-            Report_Dictionary["SERUM_ZINC"] = SERUM_ZINC
+            Report_Dictionary["LR_SERUM_ZINC"] = SERUM_ZINC
         else:
-            Report_Dictionary["SERUM_ZINC"] = None
+            Report_Dictionary["LR_SERUM_ZINC"] = None
 
 
         if 'TESTOSTERONE' in extracted_Dictionary.keys():
             TESTOSTERONE = extracted_Dictionary['TESTOSTERONE']
-            Report_Dictionary["TESTOSTERONE"] = TESTOSTERONE
+            Report_Dictionary["LR_TESTOSTERONE"] = TESTOSTERONE
         else:
-            Report_Dictionary["TESTOSTERONE"] = None
+            Report_Dictionary["LR_TESTOSTERONE"] = None
 
         if 'IRON' in extracted_Dictionary.keys():
             IRON = extracted_Dictionary['IRON']
-            Report_Dictionary["IRON"] = IRON
+            Report_Dictionary["LR_IRON"] = IRON
         else:
-            Report_Dictionary["IRON"] = None
+            Report_Dictionary["LR_IRON"] = None
 
         if 'TOTAL IRON BINDING CAPACITY (TIBC)' in extracted_Dictionary.keys():
             TOTAL_IRON_BINDING_CAPACITY = extracted_Dictionary['TOTAL IRON BINDING CAPACITY (TIBC)']
-            Report_Dictionary["TOTAL_IRON_BINDING_CAPACITY"] = TOTAL_IRON_BINDING_CAPACITY
+            Report_Dictionary["LR_TOTAL_IRON_BINDING_CAPACITY"] = TOTAL_IRON_BINDING_CAPACITY
         else:
-            Report_Dictionary["TOTAL_IRON_BINDING_CAPACITY"] = None
+            Report_Dictionary["LR_TOTAL_IRON_BINDING_CAPACITY"] = None
 
 
         if 'TRANSFERRIN SATURATION' in extracted_Dictionary.keys():
             TRANSFERRIN_SATURATION = extracted_Dictionary['TRANSFERRIN SATURATION']
-            Report_Dictionary["TRANSFERRIN_SATURATION"] = TRANSFERRIN_SATURATION
+            Report_Dictionary["LR_TRANSFERRIN_SATURATION"] = TRANSFERRIN_SATURATION
         else:
-            Report_Dictionary["TRANSFERRIN_SATURATION"] = None
+            Report_Dictionary["LR_TRANSFERRIN_SATURATION"] = None
 
         if 'ALKALINE PHOSPHATASE' in extracted_Dictionary.keys():
             ALKALINE_PHOSPHATASE = extracted_Dictionary['ALKALINE PHOSPHATASE']
-            Report_Dictionary["ALKALINE_PHOSPHATASE"] = ALKALINE_PHOSPHATASE
+            Report_Dictionary["LR_ALKALINE_PHOSPHATASE"] = ALKALINE_PHOSPHATASE
         else:
-            Report_Dictionary["ALKALINE_PHOSPHATASE"] = None
+            Report_Dictionary["LR_ALKALINE_PHOSPHATASE"] = None
 
         if 'BILIRUBIN TOTAL' in extracted_Dictionary.keys():
             BILIRUBIN_TOTAL = extracted_Dictionary['BILIRUBIN TOTAL']
-            Report_Dictionary["BILIRUBIN_TOTAL"] = BILIRUBIN_TOTAL
+            Report_Dictionary["LR_BILIRUBIN_TOTAL"] = BILIRUBIN_TOTAL
         else:
-            Report_Dictionary["BILIRUBIN_TOTAL"] = None
+            Report_Dictionary["LR_BILIRUBIN_TOTAL"] = None
 
         if 'BILIRUBIN DIRECT' in extracted_Dictionary.keys():
             BILIRUBIN_DIRECT = extracted_Dictionary['BILIRUBIN DIRECT']
-            Report_Dictionary["BILIRUBIN_DIRECT"] = BILIRUBIN_DIRECT
+            Report_Dictionary["LR_BILIRUBIN_DIRECT"] = BILIRUBIN_DIRECT
         else:
-            Report_Dictionary["BILIRUBIN_DIRECT"] = None
+            Report_Dictionary["LR_BILIRUBIN_DIRECT"] = None
 
         if 'BILIRUBIN (INDIRECT)' in extracted_Dictionary.keys():
             BILIRUBIN_INDIRECT = extracted_Dictionary['BILIRUBIN (INDIRECT)']
-            Report_Dictionary["BILIRUBIN_INDIRECT"] = BILIRUBIN_INDIRECT
+            Report_Dictionary["LR_BILIRUBIN_INDIRECT"] = BILIRUBIN_INDIRECT
         else:
-            Report_Dictionary["BILIRUBIN_INDIRECT"] = None
+            Report_Dictionary["LR_BILIRUBIN_INDIRECT"] = None
 
         if 'GAMMA GLUTAMYL TRANSFERASE (GGT)' in extracted_Dictionary.keys():
             GAMMA_GLUTAMYL_TRANSFERASE = extracted_Dictionary['GAMMA GLUTAMYL TRANSFERASE (GGT)']
-            Report_Dictionary["GAMMA_GLUTAMYL_TRANSFERASE"] = GAMMA_GLUTAMYL_TRANSFERASE
+            Report_Dictionary["LR_GAMMA_GLUTAMYL_TRANSFERASE"] = GAMMA_GLUTAMYL_TRANSFERASE
         else:
-            Report_Dictionary["GAMMA_GLUTAMYL_TRANSFERASE"] = None
+            Report_Dictionary["LR_GAMMA_GLUTAMYL_TRANSFERASE"] = None
 
 
         if 'ASPARTATE AMINOTRANSFERASE' in extracted_Dictionary.keys():
             ASPARTATE_AMINOTRANSFERASE = extracted_Dictionary['ASPARTATE AMINOTRANSFERASE']
-            Report_Dictionary["ASPARTATE_AMINOTRANSFERASE"] = ASPARTATE_AMINOTRANSFERASE
+            Report_Dictionary["LR_ASPARTATE_AMINOTRANSFERASE"] = ASPARTATE_AMINOTRANSFERASE
         else:
-            Report_Dictionary["ASPARTATE_AMINOTRANSFERASE"] = None
+            Report_Dictionary["LR_ASPARTATE_AMINOTRANSFERASE"] = None
 
         if 'ALANINE TRANSAMINASE (SGPT)' in extracted_Dictionary.keys():
             ALANINE_TRANSAMINASE = extracted_Dictionary['ALANINE TRANSAMINASE (SGPT)']
-            Report_Dictionary["ALANINE_TRANSAMINASE"] = ALANINE_TRANSAMINASE
+            Report_Dictionary["LR_ALANINE_TRANSAMINASE"] = ALANINE_TRANSAMINASE
         else:
-            Report_Dictionary["ALANINE_TRANSAMINASE"] = None
+            Report_Dictionary["LR_ALANINE_TRANSAMINASE"] = None
 
         if 'PROTEIN TOTAL' in extracted_Dictionary.keys():
             PROTEIN_TOTAL = extracted_Dictionary['PROTEIN TOTAL']
-            Report_Dictionary["PROTEIN_TOTAL"] = PROTEIN_TOTAL
+            Report_Dictionary["LR_PROTEIN_TOTAL"] = PROTEIN_TOTAL
         else:
-            Report_Dictionary["PROTEIN_TOTAL"] = None
+            Report_Dictionary["LR_PROTEIN_TOTAL"] = None
 
         if 'ALBUMIN SERUM' in extracted_Dictionary.keys():
             ALBUMIN_SERUM = extracted_Dictionary['ALBUMIN SERUM']
-            Report_Dictionary["ALBUMIN_SERUM"] = ALBUMIN_SERUM
+            Report_Dictionary["LR_ALBUMIN_SERUM"] = ALBUMIN_SERUM
         else:
-            Report_Dictionary["ALBUMIN_SERUM"] = None
+            Report_Dictionary["LR_ALBUMIN_SERUM"] = None
 
         if 'SERUM ALB/GLOBULIN' in extracted_Dictionary.keys():
             SERUM_ALB = extracted_Dictionary['SERUM ALB/GLOBULIN']
-            Report_Dictionary["SERUM_ALB"] = SERUM_ALB
+            Report_Dictionary["LR_SERUM_ALB"] = SERUM_ALB
         else:
-            Report_Dictionary["SERUM_ALB"] = None
+            Report_Dictionary["LR_SERUM_ALB"] = None
 
         if 'SERUM GLOBULIN' in extracted_Dictionary.keys():
             SERUM_GLOBULIN = extracted_Dictionary['SERUM GLOBULIN']
-            Report_Dictionary["SERUM_GLOBULIN"] = SERUM_GLOBULIN
+            Report_Dictionary["LR_SERUM_GLOBULIN"] = SERUM_GLOBULIN
         else:
-            Report_Dictionary["SERUM_GLOBULIN"] = None
+            Report_Dictionary["LR_SERUM_GLOBULIN"] = None
 
         if 'TOTAL CHOLESTEROL' in extracted_Dictionary.keys():
             TOTAL_CHOLESTEROL = extracted_Dictionary['TOTAL CHOLESTEROL']
-            Report_Dictionary["TOTAL_CHOLESTEROL"] = TOTAL_CHOLESTEROL
+            Report_Dictionary["LR_TOTAL_CHOLESTEROL"] = TOTAL_CHOLESTEROL
         else:
-            Report_Dictionary["TOTAL_CHOLESTEROL"] = None
+            Report_Dictionary["LR_TOTAL_CHOLESTEROL"] = None
 
         if 'HDL CHOLESTEROL DIRECT' in extracted_Dictionary.keys():
             HDL_CHOLESTEROL_DIRECT = extracted_Dictionary['HDL CHOLESTEROL DIRECT']
-            Report_Dictionary["HDL_CHOLESTEROL_DIRECT"] = HDL_CHOLESTEROL_DIRECT
+            Report_Dictionary["LR_HDL_CHOLESTEROL_DIRECT"] = HDL_CHOLESTEROL_DIRECT
         else:
-            Report_Dictionary["HDL_CHOLESTEROL_DIRECT"] = None
+            Report_Dictionary["LR_HDL_CHOLESTEROL_DIRECT"] = None
 
         if 'LDL CHOLESTEROL DIRECT' in extracted_Dictionary.keys():
             LDL_CHOLESTEROL_DIRECT = extracted_Dictionary['LDL CHOLESTEROL DIRECT']
-            Report_Dictionary["LDL_CHOLESTEROL_DIRECT"] = LDL_CHOLESTEROL_DIRECT
+            Report_Dictionary["LR_LDL_CHOLESTEROL_DIRECT"] = LDL_CHOLESTEROL_DIRECT
         else:
-            Report_Dictionary["LDL_CHOLESTEROL_DIRECT"] = None
+            Report_Dictionary["LR_LDL_CHOLESTEROL_DIRECT"] = None
 
         if 'TRIGLYCERIDES' in extracted_Dictionary.keys():
             TRIGLYCERIDES = extracted_Dictionary['TRIGLYCERIDES']
-            Report_Dictionary["TRIGLYCERIDES"] = TRIGLYCERIDES
+            Report_Dictionary["LR_TRIGLYCERIDES"] = TRIGLYCERIDES
         else:
-            Report_Dictionary["TRIGLYCERIDES"] = None
+            Report_Dictionary["LR_TRIGLYCERIDES"] = None
 
         if 'TC/ HDL CHOLESTEROL' in extracted_Dictionary.keys():
             TC_HDL_CHOLESTEROL_RATIO = extracted_Dictionary['TC/ HDL CHOLESTEROL']
-            Report_Dictionary["TC_HDL_CHOLESTEROL_RATIO"] = TC_HDL_CHOLESTEROL_RATIO
+            Report_Dictionary["LR_TC_HDL_CHOLESTEROL_RATIO"] = TC_HDL_CHOLESTEROL_RATIO
         else:
-            Report_Dictionary["TC_HDL_CHOLESTEROL_RATIO"] = None
+            Report_Dictionary["LR_TC_HDL_CHOLESTEROL_RATIO"] = None
 
         if 'LDL HDL' in extracted_Dictionary.keys():
             LDL_HDL_RATIO = extracted_Dictionary['LDL HDL']
-            Report_Dictionary["LDL_HDL_RATIO"] = LDL_HDL_RATIO
+            Report_Dictionary["LR_LDL_HDL_RATIO"] = LDL_HDL_RATIO
         else:
-            Report_Dictionary["LDL_HDL_RATIO"] = None
+            Report_Dictionary["LR_LDL_HDL_RATIO"] = None
 
 
         if 'VLDL CHOLESTEROL' in extracted_Dictionary.keys():
             VLDL_CHOLESTEROL = extracted_Dictionary['VLDL CHOLESTEROL']
-            Report_Dictionary["VLDL_CHOLESTEROL"] = VLDL_CHOLESTEROL
+            Report_Dictionary["LR_VLDL_CHOLESTEROL"] = VLDL_CHOLESTEROL
         else:
-            Report_Dictionary["VLDL_CHOLESTEROL"] = None
+            Report_Dictionary["LR_VLDL_CHOLESTEROL"] = None
 
         if 'NONHDL CHOLESTEROL' in extracted_Dictionary.keys():
             NON_HDL_CHOLESTEROL = extracted_Dictionary['NONHDL CHOLESTEROL']
-            Report_Dictionary["NON_HDL_CHOLESTEROL"] = NON_HDL_CHOLESTEROL
+            Report_Dictionary["LR_NON_HDL_CHOLESTEROL"] = NON_HDL_CHOLESTEROL
         else:
-            Report_Dictionary["NON_HDL_CHOLESTEROL"] = None
+            Report_Dictionary["LR_NON_HDL_CHOLESTEROL"] = None
 
 
         if 'TOTAL TRIIODOTHYRONINE (T)' in extracted_Dictionary.keys():
             TOTAL_TRIIODOTHYRONINE = extracted_Dictionary['TOTAL TRIIODOTHYRONINE (T)']
-            Report_Dictionary["TOTAL_TRIIODOTHYRONINE"] = TOTAL_TRIIODOTHYRONINE
+            Report_Dictionary["LR_TOTAL_TRIIODOTHYRONINE"] = TOTAL_TRIIODOTHYRONINE
         else:
-            Report_Dictionary["TOTAL_TRIIODOTHYRONINE"] = None
+            Report_Dictionary["LR_TOTAL_TRIIODOTHYRONINE"] = None
 
         if 'TOTAL THYROXINE (T)' in extracted_Dictionary.keys():
             TOTAL_THYROXINE = extracted_Dictionary['TOTAL THYROXINE (T)']
-            Report_Dictionary["TOTAL_THYROXINE"] = TOTAL_THYROXINE
+            Report_Dictionary["LR_TOTAL_THYROXINE"] = TOTAL_THYROXINE
         else:
-            Report_Dictionary["TOTAL_THYROXINE"] = None
+            Report_Dictionary["LR_TOTAL_THYROXINE"] = None
 
         if 'THYROID STIMULATING HORMONE (TSH)' in extracted_Dictionary.keys():
             THYROID_STIMULATING_HORMONE = extracted_Dictionary['THYROID STIMULATING HORMONE (TSH)']
-            Report_Dictionary["THYROID_STIMULATING_HORMONE"] = THYROID_STIMULATING_HORMONE
+            Report_Dictionary["LR_THYROID_STIMULATING_HORMONE"] = THYROID_STIMULATING_HORMONE
         else:
-            Report_Dictionary["THYROID_STIMULATING_HORMONE"] = None
+            Report_Dictionary["LR_THYROID_STIMULATING_HORMONE"] = None
 
         if 'BLOOD UREA NITROGEN (BUN)' in extracted_Dictionary.keys():
             BLOOD_UREA_NITROGEN = extracted_Dictionary['BLOOD UREA NITROGEN (BUN)']
-            Report_Dictionary["BLOOD_UREA_NITROGEN"] = BLOOD_UREA_NITROGEN
+            Report_Dictionary["LR_BLOOD_UREA_NITROGEN"] = BLOOD_UREA_NITROGEN
         else:
-            Report_Dictionary["BLOOD_UREA_NITROGEN"] = None
+            Report_Dictionary["LR_BLOOD_UREA_NITROGEN"] = None
 
         if 'CREATININE SERUM' in extracted_Dictionary.keys():
             CREATININE_SERUM = extracted_Dictionary['CREATININE SERUM']
-            Report_Dictionary["CREATININE_SERUM"] = CREATININE_SERUM
+            Report_Dictionary["LR_CREATININE_SERUM"] = CREATININE_SERUM
         else:
-            Report_Dictionary["CREATININE_SERUM"] = None
+            Report_Dictionary["LR_CREATININE_SERUM"] = None
 
         if 'BUN SRCREATININE' in extracted_Dictionary.keys():
             BUN_SR_CREATININE_RATIO = extracted_Dictionary['BUN SRCREATININE']
-            Report_Dictionary["BUN_SR_CREATININE_RATIO"] = BUN_SR_CREATININE_RATIO
+            Report_Dictionary["LR_BUN_SR_CREATININE_RATIO"] = BUN_SR_CREATININE_RATIO
         else:
-            Report_Dictionary["BUN_SR_CREATININE_RATIO"] = None
+            Report_Dictionary["LR_BUN_SR_CREATININE_RATIO"] = None
 
         if 'CALCIUM' in extracted_Dictionary.keys():
             CALCIUM = extracted_Dictionary['CALCIUM']
-            Report_Dictionary["CALCIUM"] = CALCIUM
+            Report_Dictionary["LR_CALCIUM"] = CALCIUM
         else:
-            Report_Dictionary["CALCIUM"] = None
+            Report_Dictionary["LR_CALCIUM"] = None
 
         if 'URIC ACID' in extracted_Dictionary.keys():
             URIC_ACID = extracted_Dictionary['URIC ACID']
-            Report_Dictionary["URIC_ACID"] = URIC_ACID
+            Report_Dictionary["LR_URIC_ACID"] = URIC_ACID
         else:
-            Report_Dictionary["URIC_ACID"] = None
+            Report_Dictionary["LR_URIC_ACID"] = None
 
 
         if 'EST GLOMERULAR FILTRATION RATE' in extracted_Dictionary.keys():
             EST_GLOMERULAR_FILTRATION_RATE = extracted_Dictionary['EST GLOMERULAR FILTRATION RATE']
-            Report_Dictionary["EST_GLOMERULAR_FILTRATION_RATE"] = EST_GLOMERULAR_FILTRATION_RATE
+            Report_Dictionary["LR_EST_GLOMERULAR_FILTRATION_RATE"] = EST_GLOMERULAR_FILTRATION_RATE
         else:
-            Report_Dictionary["EST_GLOMERULAR_FILTRATION_RATE"] = None
+            Report_Dictionary["LR_EST_GLOMERULAR_FILTRATION_RATE"] = None
 
 
 
+        labreportupload = LabReportUploadModel(LU_user_id,LU_name=file.filename,LU_report=file.read())
+        labreport = LabReportModel(LU_user_id, **Report_Dictionary)
 
-        labreportupload = LabReportUploadModel(user_id,name=file.filename,report=file.read())
-        labreport = LabReportModel(user_id, **Report_Dictionary)
-        print(labreportupload)
 
         try:
 
@@ -895,9 +894,9 @@ class LabReportUpload(Resource):
 
     @jwt_required
     def delete(self, user_id):
-        labreportupload =LabReportUploadModel.find_by_id(user_id)
-        userid = get_jwt_identity()
-        folder = f"user_{userid}"
+        labreportupload =LabReportUploadModel.find_by_id(LU_user_id)
+        LU_userid = get_jwt_identity()
+        folder = f"user_{LU_userid}"
 
         if labreportupload:
             labreportupload.delete_from_db()

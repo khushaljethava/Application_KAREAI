@@ -34,8 +34,6 @@ jwt = JWTManager(app)
 def create_table():
     db.create_all()
 
-
-
 from resources.user import UserRegistration, UserLogin, UserLogoutAccess, UserLogoutRefersh, TokenRefersh, SecretResources
 from resources.Preexistingcondition import PreexistingCondition
 from resources.Familyhistory import FamilyHistory
@@ -57,10 +55,10 @@ api.add_resource(UserLogoutAccess, '/logout/access')
 api.add_resource(UserLogoutRefersh, '/logout/refresh')
 api.add_resource(TokenRefersh, '/token/refresh')
 #api.add_resource(SecretResources, '/secret')
-api.add_resource(PreexistingCondition,'/preexisting/<int:user_id>') # user_id
-api.add_resource(FamilyHistory,'/familyhistory/<int:user_id>/<string:Member>') #
-api.add_resource(LabReport, '/labreport/<int:user_id>')
-api.add_resource(LabReportUpload, '/labreportupload/<int:user_id>')
-api.add_resource(RetinaUpload, '/retinaupload/<int:user_id>')
+api.add_resource(PreexistingCondition,'/preexisting/<int:PC_user_id>') # user_id
+api.add_resource(FamilyHistory,'/familyhistory/<int:FH_user_id>/<string:FH_Member>') #
+api.add_resource(LabReport, '/labreport/<int:LR_user_id>')
+api.add_resource(LabReportUpload, '/labreportupload/<int:LU_user_id>')
+api.add_resource(RetinaUpload, '/retinaupload/<int:RU_user_id>')
 api.add_resource(ReferenceRange,'/reference')
-api.add_resource(SymptomChecker, '/symptomcheck/<int:question_id>')
+api.add_resource(SymptomChecker, '/symptomcheck/<int:SC_question_id>')

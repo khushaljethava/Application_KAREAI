@@ -2,24 +2,24 @@ from run import db
 class SymptomCheckerModel(db.Model):
     __tablename__ = 'SymptomChecker'
 
-    question_id = db.Column(db.Integer, primary_key=True)
-    questions = db.Column(db.String(120))
+    SC_question_id = db.Column(db.Integer, primary_key=True)
+    SC_questions = db.Column(db.String(120))
 
 
 
-    def __init__(self, question_id, questions):
-        self.question_id = question_id
-        self.questions = questions
+    def __init__(self, SC_question_id, SC_questions):
+        self.SC_question_id = SC_question_id
+        self.SC_questions = SC_questions
 
     def json(self):
         return{
-        'Questions': self.questions
+        'Questions': self.SC_questions
         }
 
 
     @classmethod
-    def find_by_Question_id(cls, question_id):
-        return cls.query.filter_by(question_id=question_id).first()
+    def find_by_Question_id(cls, SC_question_id):
+        return cls.query.filter_by(SC_question_id=SC_question_id).first()
 
 
     def save_to_db(self):

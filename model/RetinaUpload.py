@@ -4,37 +4,37 @@ from model.user import UserModel
 class RetinaUploadModel(db.Model):
     __tablename__ = 'RetinaReport'
 
-    id = db.Column(db.Integer,primary_key=True)
-    user_id  = db.Column(db.Integer,db.ForeignKey('users.id'))
-    name = db.Column(db.String(300))
-    prediction = db.Column(db.String(300))
-    accuracy = db.Column(db.Float)
-    report = db.Column(db.LargeBinary(length=(2**32)-1))
+    RU_id = db.Column(db.Integer,primary_key=True)
+    RU_user_id  = db.Column(db.Integer,db.ForeignKey('users.u_id'))
+    RU_name = db.Column(db.String(300))
+    RU_prediction = db.Column(db.String(300))
+    RU_accuracy = db.Column(db.Float)
+    RU_report = db.Column(db.LargeBinary(length=(2**32)-1))
     #report = db.Column(db.String(300))
 
     users = db.relationship('UserModel')
 
-    def __init__(self,user_id,name,prediction,accuracy,report):
+    def __init__(self,RU_user_id,RU_name,RU_prediction,RU_accuracy,RU_report):
 
-                 self.user_id = user_id
-                 self.name = name
-                 self.prediction = prediction
-                 self.accuracy = accuracy
-                 self.report = report
+                 self.RU_user_id = RU_user_id
+                 self.RU_name = RU_name
+                 self.RU_prediction = RU_prediction
+                 self.RU_accuracy = RU_accuracy
+                 self.RU_report = RU_report
 
 
 
     def json(self):
         return{
-                 'name' : self.name,
-                 'prediction' : self.prediction,
-                 'accuracy' : self.accuracy,
-                 
+                 'RU_name' : self.RU_name,
+                 'RU_prediction' : self.RU_prediction,
+                 'RU_accuracy' : self.RU_accuracy,
+
 
         }
     @classmethod
-    def find_by_id(cls, user_id):
-        return cls.query.filter_by(user_id = user_id).first()
+    def find_by_id(cls, RU_user_id):
+        return cls.query.filter_by(RU_user_id = RU_user_id).first()
 
 
     def save_to_db(self):
