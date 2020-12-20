@@ -28,7 +28,7 @@ class BloodGlucose(Resource):
 
         today_BG ={}
         for date in bloodglucose_today:
-            today_BG[str(date.BG_Time)] = str(date.BG_Value)
+            today_BG[str(date.BG_Time)] = int(date.BG_Value)
 
         if bloodglucose:
             return {
