@@ -14,7 +14,8 @@ class SymptomChecker(Resource):
     parser.add_argument('UI_SCA_aid')
 
     @jwt_required
-    def get(self, SCA_qid):
+    def get(self,UI_user_id):
+        SCA_qid = UI_user_id
         if SymptomCheckerAnswerModel.find_by_answer_id(SCA_qid):
             options = SymptomCheckerAnswerModel.find_by_answer_id(SCA_qid)
             answers = {}
@@ -32,11 +33,9 @@ class SymptomChecker(Resource):
             "Response" : "Question Not Found"
             }
     @jwt_required
-    def post(self,SCA_qid):
+    def post(self,UI_user_id):
         data = SymptomChecker.parser.parse_args()
-        UI_user_id = get_jwt_identity()
-        print (UI_user_id)
-        symptom_checker = UserSymptomsInputModel(SCA_qid,**data)
+        symptom_checker = UserSymptomsInputModel(UI_user_id,**data)
 
         try:
             symptom_checker.save_to_db()

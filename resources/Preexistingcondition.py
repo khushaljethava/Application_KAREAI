@@ -79,7 +79,7 @@ class PreexistingCondition(Resource):
 
             return {
             "Status" : "Error",
-            'message': 'An error occurred while saving' }
+            'Response': 'An error occurred while saving' }
 
         return {
         "Status" : "Success",

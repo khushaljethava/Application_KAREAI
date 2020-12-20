@@ -1,8 +1,5 @@
 from run import db
-
-
-
-
+from model.user import UserModel
 
 
 class SymptomCheckerAnswerModel(db.Model):
@@ -13,6 +10,7 @@ class SymptomCheckerAnswerModel(db.Model):
     SCA_qid = db.Column(db.Integer)
 
     def __init__(self, SCA_id, SCA_Ans):
+
         self.SCA_id = SCA_id
         self.SCA_Ans = SCA_Ans
 
@@ -24,6 +22,10 @@ class SymptomCheckerAnswerModel(db.Model):
         }
 
 
+
+    @classmethod
+    def find_by_id(cls, SCA_user_id):
+        return cls.query.filter_by(SCA_user_id = SCA_user_id).first()
 
     @classmethod
     def find_by_answer_id(cls, SCA_qid):

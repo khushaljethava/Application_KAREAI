@@ -9,8 +9,8 @@ class UserModel(db.Model):
     u_fullname = db.Column(db.String(120),nullable = False)
     u_email = db.Column(db.String(120), unique=True, nullable = False)
     u_mobile = db.Column(db.BIGINT(), unique=True, nullable = False)
-    u_gender = db.Column(db.String(120),)
-    u_age = db.Column(db.Integer(),)
+    u_gender = db.Column(db.String(120))
+    u_age = db.Column(db.Integer())
 
 
     PreexistingCondition = db.relationship('PreConditionModel', lazy='dynamic')

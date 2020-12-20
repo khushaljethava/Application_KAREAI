@@ -76,7 +76,9 @@ class UserLogin(Resource):
             result = {
             'u_id': mydict["u_id"],
             'access_token': access_token,
-            'u_username' : mydict["u_username"]
+            'u_username' : mydict["u_username"],
+            'u_gender' : mydict["u_gender"],
+            'u_age': mydict["u_age"],
             }
             return {
                     "Status": "Success",
