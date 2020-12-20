@@ -25,11 +25,16 @@ class UserRegistration(Resource):
     def post(self):
         data = reg_parser.parse_args()
         if UserModel.find_by_username(data['u_username']):
-            return {'message': 'User {} already exists'.format(data['u_username'])}
+            return {"Status" :"Error",
+            'Response': 'Username already taken'}
         if UserModel.find_by_mobile(data['u_mobile']):
-            return {'message': 'Mobile Number {} already exists'.format(data['u_mobile'])}
+            return {
+            "Status" :"Error",
+            'Response': 'Mobile Number already taken'}
         if UserModel.find_by_email(data['u_email']):
-            return {'message': 'Email {} already exists'.format(data['u_email'])}
+            return {
+            "Status" :"Error",
+            'Response': 'Email  already taken'}
 
 
         new_user = UserModel(
@@ -39,17 +44,19 @@ class UserRegistration(Resource):
         u_mobile=data['u_mobile'],
         u_gender=data['u_gender'],
         u_age=data['u_age'])
-        print(new_user)
         try:
             new_user.save_to_db()
             access_token = create_access_token(identity = data['u_mobile'])
             refresh_token = create_refresh_token(identity = data['u_mobile'])
             return {
-            'message': 'User {} was created successfully'.format(data['u_mobile']),
+            "Status" : "Success",
+            'Response': 'User {} was created successfully'.format(data['u_mobile']),
              'access_token': access_token
             }
         except:
-            return {'message':'Something went wrong'}, 500
+            return {
+            "Status" : "Error",
+            'Response':'Something went wrong'}, 500
 
 class UserLogin(Resource):
 
@@ -57,7 +64,9 @@ class UserLogin(Resource):
         data = log_parser.parse_args()
         current_user = UserModel.find_by_mobile(data['u_mobile'])
         if not current_user:
-            return {'message': 'User {} doess\'t exist'.format(data['u_mobile'])}
+            return {
+            "Status" : "Error",
+            'Response': 'User {} doess\'t exist'.format(data['u_mobile'])}
 
         if UserModel.find_by_mobile(data['u_mobile']):
             user =  UserModel.find_by_mobile(data['u_mobile'])
@@ -75,7 +84,8 @@ class UserLogin(Resource):
 
             }
         else:
-            return {'Status': 'Error '}
+            return {'Status': 'Error ',
+            "Response" : "Something went wrong"},500
 
 
 class UserLogoutAccess(Resource):
@@ -85,9 +95,13 @@ class UserLogoutAccess(Resource):
         try:
             revoked_token = RevokedTokenModel(jti = jti)
             revoked_token.add()
-            return {'message':'Access token has been revoked'}
+            return {
+            "Status" :"Success",
+            'Response':'Access token has been revoked'}
         except:
-            return {'message':'Something went wrong'}, 500
+            return {
+            "Status" : "Error",
+            'Response':'Something went wrong'}, 500
 
 
 class UserLogoutRefersh(Resource):
@@ -97,9 +111,13 @@ class UserLogoutRefersh(Resource):
         try:
             revoked_token = RevokedTokenModel(jti = jti)
             revoked_token.add()
-            return {'message': 'Refresh token has been revoked'}
+            return {
+            "Status" :"Success",
+            'Response': 'Refresh token has been revoked'}
         except:
-            return {'message':'Something went wrong'}, 500
+            return {
+            "Status" : "Error",
+            'Response':'Something went wrong'}, 500
 
 
 class TokenRefersh(Resource):
@@ -107,11 +125,6 @@ class TokenRefersh(Resource):
     def post(self):
         current_user = get_jwt_identity()
         access_token = create_access_token(identity=current_user)
-        return {'access_token': access_token}
-
-
-
-class SecretResources(Resource):
-    @jwt_required
-    def get(self):
-        return {'answers':45}
+        return {
+        "Status" : "Success",
+        'access_token': access_token}

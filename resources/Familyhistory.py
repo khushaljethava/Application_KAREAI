@@ -46,12 +46,18 @@ class FamilyHistory(Resource):
         familyhistory_Member = FamilyHistoryModel.find_by_FH_Member(FH_Member)
         if familyhistory_Member:
             return familyhistory_Member.json()
-        return {'message': 'Item not found' }, 404
+        else:
+            return {
+            "Status" : "Error",
+            'Response': 'Item not found'
+             }, 404
 
     @jwt_required
     def post(self, FH_user_id, FH_Member):
         if FamilyHistoryModel.find_by_id(FH_user_id) and FamilyHistoryModel.find_by_FH_Member(FH_Member):
-            return {'message': 'Item already exists'}
+            return {
+            'Status' : 'Error',
+            'Response': 'Item already exists'}
         else:
 
             data = FamilyHistory.parser.parse_args()
@@ -64,9 +70,15 @@ class FamilyHistory(Resource):
 
             except:
 
-                return {'message': 'An Error occurred in Family History'}
+                return {
+                'Status': 'Error',
+                'Response': 'An Error occurred while saving'}
 
-            return familyhistory.json(), 201
+            return {
+            "Status": "Status",
+            "Response": familyhistory.json()
+            }, 201
+
 
     @jwt_required
     def put(self,FH_user_id, FH_Member):
@@ -114,12 +126,20 @@ class FamilyHistory(Resource):
 
         familyhistory.save_to_db()
 
-        return familyhistory.json(), 201
+        return {"Status" : "Success",
+                "Response" : familyhistory.json()
+                }, 201
+
 
     @jwt_required
     def delete(self, FH_user_id, FH_Member):
         familyhistory = FamilyHistoryModel.find_by_id(FH_user_id)
         if familyhistory:
             familyhistory.delete_from_db()
-            return {'message': 'Item deleted successfully.'}
-        return {'message': 'Item not found'}
+            return {
+            "Status" : "Success",
+            'Response': 'Item deleted successfully.'}
+        else:
+            return {
+            "Status" : "Error",
+            'Response': 'Item not found'}, 404

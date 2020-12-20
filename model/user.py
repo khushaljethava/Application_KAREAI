@@ -38,10 +38,20 @@ class UserModel(db.Model):
     def find_by_id(cls, u_id):
         return cls.query.filter_by(u_id = u_id).first()
 
+    @classmethod
+    def find_by_ids(cls, u_id):
+        return cls.query.filter_by(u_id = u_id)
+
     def json(self):
         return{
         'u_id' : self.u_id,
-        'u_username' : self.u_username
+        'u_username' : self.u_username,
+        'u_fullname' : self.u_fullname,
+        'u_email' : self.u_email,
+        'u_mobile' : self.u_mobile,
+        'u_gender' : self.u_gender,
+        'u_age': self.u_age,
+
         }
 
     @staticmethod

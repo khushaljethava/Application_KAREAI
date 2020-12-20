@@ -110,8 +110,15 @@ class LabReport(Resource):
         #print(lowrange)
         labreport = LabReportModel.find_by_id(LR_user_id)
         if labreport:
-            return labreport.json()
-#        return {'message': 'Item not found' }, 404
+            return {
+            "Status" :"Success",
+            "Response" : labreport.json()
+            }
+
+        else:
+            return {
+            "Status" : "Error",
+            'Response': 'Item not found' }, 404
         #return lowrange
 
 
@@ -212,7 +219,7 @@ class LabReport(Resource):
             labreport.LR_CREATININE_SERUM = data['LR_CREATININE_SERUM']
             labreport.LR_BUN_SR_CREATININE_RATIO = data['LR_BUN_SR_CREATININE_RATIO']
             labreport.LR_CALCIUM = data['LR_CALCIUM']
-            labreport.URIC_ACID = data['LR_URIC_ACID']
+            labreport.LR_URIC_ACID = data['LR_URIC_ACID']
             labreport.LR_EST_GLOMERULAR_FILTRATION_RATE = data['LR_EST_GLOMERULAR_FILTRATION_RATE']
 
 
@@ -222,12 +229,20 @@ class LabReport(Resource):
 
         labreport.save_to_db()
 
-        return labreport.json(),201
+        return {
+        "Status" : "Success",
+        "Response" : labreport.json()
+        },201
+
     @jwt_required
     def delete(self, LR_user_id):
         labreport = LabReportModel.find_by_id(LR_user_id)
         if labreport:
             labreport.delete_from_db()
-            return {'message': 'Item deleted successfully.'}
-
-        return {'message': ' Item Not Found'}
+            return {
+            "Status" : "Status",
+            'Response': 'Item deleted successfully.'},201
+        else:
+            return {
+            "Status" : "Error",
+            'Response': ' Item Not Found'},404

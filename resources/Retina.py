@@ -65,22 +65,38 @@ class RetinaUpload(Resource):
 
                 retinaupload.save_to_db()
             except:
-                return {'message': ' Error occurred'},500
+                return {
+                "Status" : "Error",
+                'Response': ' Error occurred while saving'},500
 
         else:
-            return {'message':'File extension not allowed'},500
+            return {
+            "Status" : "Error",
+            'Response':'File extension not allowed'},500
 
-        return result,201
+        return {
+        "Status" : "Success",
+        "Response" :   result},201
+
 
     def get(self,RU_user_id):
         retinaupload = RetinaUploadModel.find_by_id(RU_user_id)
         if retinaupload:
-            return retinaupload.json()
-        return {'message':'Item not found'}, 404
+            return {
+            "Status" : "Success",
+            "Response" : retinaupload.json()
+            }
+        return {
+        "Status" : "Error",
+        'Response' :'Item not found'}, 404
 
     def delete(self,RU_user_id):
         ratinaupload = RetinaUploadModel.find_by_id(RU_user_id)
         if ratinaupload:
             ratinaupload.delete_from_db()
-            return {'message': 'Item deleted successfully.'}
-        return {'message': 'Item not found'}
+            return {
+            "Status" : "Success",
+            'Response': 'Item deleted successfully.'}
+        return {
+        "Status" : "Error",
+        'Response': 'Item not found'}

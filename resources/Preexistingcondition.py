@@ -38,7 +38,6 @@ class PreexistingCondition(Resource):
     parser.add_argument('PC_Phsychological_Problems', help='PC_Phsychological_Problems cannot be blank', required=True)
     parser.add_argument('PC_Seizures', help='PC_Seizures cannot be blank', required=True)
     parser.add_argument('PC_Dizziness', help='PC_Dizziness cannot be blank', required=True)
-
     parser.add_argument('PC_Ringing_in_Ears', help='PC_Ringing_in_Ears cannot be blank', required=True)
     parser.add_argument('PC_Allergy_to_Latex', help='PC_Allergy_to_Latex cannot be blank', required=True)
     parser.add_argument('PC_Head_Injury', help='PC_Head_Injury cannot be blank', required=True)
@@ -55,12 +54,19 @@ class PreexistingCondition(Resource):
     def get(self, PC_user_id):
         preexistingcondition = PreConditionModel.find_by_id(PC_user_id)
         if  preexistingcondition:
-            return preexistingcondition.json()
-        return {'message': 'Item not found'}, 404
+            return{
+            "Status" : "Success",
+            "Response" : preexistingcondition.json()
+            }
+        return {
+        "Status" : "Error",
+        'Response': 'Item not found'}, 404
     @jwt_required
     def post(self, PC_user_id):
         if PreConditionModel.find_by_id(PC_user_id):
-            return {'message': 'Item already exists'}
+            return {
+            "Status" : "Error",
+            'Response': 'Item already exists'}
 
         data = PreexistingCondition.parser.parse_args()
         preexistingcondition = PreConditionModel(PC_user_id, **data)
@@ -71,16 +77,26 @@ class PreexistingCondition(Resource):
 
         except:
 
-            return {'message': 'An error occurred' }
-        return preexistingcondition.json(), 201
+            return {
+            "Status" : "Error",
+            'message': 'An error occurred while saving' }
+
+        return {
+        "Status" : "Success",
+        "Response" : preexistingcondition.json()} ,201
 
     @jwt_required
     def delete(self,PC_user_id):
         preexistingcondition = PreConditionModel.find_by_id(PC_user_id)
         if preexistingcondition:
             preexistingcondition.delete_from_db()
-            return {'message': 'Item deleted.'}
-        return {'message': ' Item not Found'}
+            return {
+            "Status" : "Success",
+            'Response': 'Item deleted successfully.'}
+
+        return {
+        "Status" : "Error",
+        'Response': ' Item not Found'}
 
     @jwt_required
     def put(self, PC_user_id):
@@ -135,4 +151,7 @@ class PreexistingCondition(Resource):
             preexistingcondition = PreConditionModel(PC_user_id, **data)
         preexistingcondition.save_to_db()
 
-        return preexistingcondition.json(),201
+        return {
+        "Status" :"Success",
+        "Response" : preexistingcondition.json()
+        },201

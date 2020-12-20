@@ -5,12 +5,13 @@
 	POST /registration
 
 	{
-	   "username": "Khushal54",
-	   "fullname": "Khushal Jethwa",
-	   "mobile" : 9662737937,
-	   "email" : "Khushaljethwa14@gmail.com",
-	   "Gerder" : "Male",
-	   "Age" : 22   
+	    "u_username": "Khus54645",
+	    "u_fullname": "Khushal Jethwa",
+	    "u_mobile" : 9662737937,
+	    "u_email" : "Khushaljethwa14@.com",
+	    "u_Gerder" : "Male",
+	    "u_Age" : 25    
+
 	}
 
 	{
@@ -19,7 +20,7 @@
 
 
 	{
-	   "mobile" : 9662737937
+	   "u_mobile" : 9662737937
 	}
 
 
@@ -101,7 +102,7 @@ Example :  localhost/preexisting/5,
 
 
 # Family History  
-	POST : /familyhistory/<int:user_id>/<string:Member>
+		POST : /familyhistory/<int:user_id>/<string:Member>
 	  GET : /familyhistory/<int:user_id>/<string:Member>
 	  PUT : /familyhistory/<int:user_id>/<string:Member>
 	  DELETE : /familyhistory/<int:user_id>/<string:Member>
@@ -155,101 +156,101 @@ Parameters for Put Method
 
 
 	{
-	    "HPLC": 5.9,
-	    "AVERAGE_BLOOD_GLUCOSE": 123.0,
-	    "TOTAL_LEUCOCYTES_COUNT": 8.3,
-	    "NEUTROPHILS": 52.2,
-	    "LYMPHOCYTE_PERCENTAGE": 42.8,
-	    "MONOCYTES": 3.3,
-	    "EOSINOPHILS": 1.3,
-	    "BASOPHILS": 0.2,
-	    "IMMATURE_GRANULOCYTE_PERCENTAGE": 0.2,
-	    "NEUTROPHILS_ABSOLUTE_COUNT": null,
-	    "LYMPHOCYTES_ABSOLUTE_COUNT": 3.55,
-	    "MONOCYTES_ABSOLUTE_COUNT": 0.27,
-	    "BASOPHILS_ABSOLUTE_COUNT": 0.02,
-	    "EOSINOPHILS_ABSOLUTE_COUNT": null,
-	    "IMMATURE_GRANULOCYTES": null,
-	    "TOTAL_RBC": 4.83,
-	    "NUCLEATED_RED_BLOOD_CELLS": null,
-	    "HEMOGLOBIN": 9.4,
-	    "HEMATOCRIT": 37.2,
-	    "MEAN_CORPUSCULAR_VOLUME": 77.0,
-	    "MEAN_CORPUSCULAR_HEMOGLOBIN": 19.5,
-	    "MEAN_CORP_HEMO_CONC": 25.3,
-	    "RED_CELL_DISTRIBUTION_WIDTH_SD": 54.5,
-	    "RED_CELL_DISTRIBUTION_WIDTH_CV": 19.7,
-	    "PLATELET_DISTRIBUTION_WIDTH": 10.8,
-	    "MEAN_PLATELET_VOLUME": 10.2,
-	    "PLATELET_COUNT": 518.0,
-	    "PLATELET_TO_LARGE_CELL_RATIO": 25.6,
-	    "PLATELETCRIT": 0.53,
-	    "ARSENIC": 0.53,
-	    "CADMIUM": 0.53,
-	    "MERCURY": 0.53,
-	    "LEAD": 0.53,
-	    "CHROMIUM": 0.53,
-	    "BARIUM": 0.53,
+	    "LR_HPLC": 5.9,
+	    "LR_AVERAGE_BLOOD_GLUCOSE": 123.0,
+	    "LR_TOTAL_LEUCOCYTES_COUNT": 8.3,
+	    "LR_NEUTROPHILS": 52.2,
+	    "LR_LYMPHOCYTE_PERCENTAGE": 42.8,
+	    "LR_MONOCYTES": 3.3,
+	    "LR_EOSINOPHILS": 1.3,
+	    "LR_BASOPHILS": 0.2,
+	    "LR_IMMATURE_GRANULOCYTE_PERCENTAGE": 0.2,
+	    "LR_NEUTROPHILS_ABSOLUTE_COUNT": null,
+	    "LR_LYMPHOCYTES_ABSOLUTE_COUNT": 3.55,
+	    "LR_MONOCYTES_ABSOLUTE_COUNT": 0.27,
+	    "LR_BASOPHILS_ABSOLUTE_COUNT": 0.02,
+	    "LR_EOSINOPHILS_ABSOLUTE_COUNT": null,
+	    "LR_IMMATURE_GRANULOCYTES": null,
+	    "LR_TOTAL_RBC": 4.83,
+	    "LR_NUCLEATED_RED_BLOOD_CELLS": null,
+	    "LR_HEMOGLOBIN": 9.4,
+	    "LR_HEMATOCRIT": 37.2,
+	    "LR_MEAN_CORPUSCULAR_VOLUME": 77.0,
+	    "LR_MEAN_CORPUSCULAR_HEMOGLOBIN": 19.5,
+	    "LR_MEAN_CORP_HEMO_CONC": 25.3,
+	    "LR_RED_CELL_DISTRIBUTION_WIDTH_SD": 54.5,
+	    "LR_RED_CELL_DISTRIBUTION_WIDTH_CV": 19.7,
+	    "LR_PLATELET_DISTRIBUTION_WIDTH": 10.8,
+	    "LR_MEAN_PLATELET_VOLUME": 10.2,
+	    "LR_PLATELET_COUNT": 518.0,
+	    "LR_PLATELET_TO_LARGE_CELL_RATIO": 25.6,
+	    "LR_PLATELETCRIT": 0.53,
+	    "LR_ARSENIC": 0.53,
+	    "LR_CADMIUM": 0.53,
+	    "LR_MERCURY": 0.53,
+	    "LR_LEAD": 0.53,
+	    "LR_CHROMIUM": 0.53,
 	    "COBALT": 0.53,
-	    "CAESIUM": 0.53,
-	    "THALLIUM": 0.53,
-	    "URANIUM": 0.53,
-	    "STRONTIUM": 0.53,
-	    "ANTIMONY": 0.53,
-	    "TIN": 0.53,
-	    "MOLYBDENUM": 0.53,
-	    "SILVER": 0.53,
-	    "VANADIUM": 0.53,
-	    "BERYLLIUM": 0.53,
-	    "BISMUTH": 0.53,
-	    "SELENIUM": 0.53,
-	    "ALUMINIUM": 0.53,
-	    "NICKEL": 0.53,
-	    "MANGANESE": 0.53,
-	    "HOMOCYSTEINE": 0.53,
-	    "CYSTATIN C": 0.53,
-	    "LIPOPROTEIN": 0.53,
-	    "VITAMIN D (TOTAL)": 0.53,
-	    "VITAMIN B-12": 0.53,
-	    "APOLIPOPROTEIN - A1 (APO-A1)": 0.53,
-	    "APOLIPOPROTEIN - B (APO-B)": 0.53,
-	    "APO B / APO A1 RATIO (APO B/A1)": 0.53,
-	    "HIGH SENSITIVITY C-REACTIVE PROTEIN (HS-CRP)": 0.53,
-	    "SERUM COPPER": 0.53,
-	    "SERUM ZINC": 0.53,
-	    "TESTOSTERONE": 0.53,
-	    "IRON": null,
-	    "TOTAL_IRON_BINDING_CAPACITY": null,
-	    "TRANSFERRIN_SATURATION": null,
-	    "ALKALINE_PHOSPHATASE": 129.0,
-	    "BILIRUBIN_TOTAL": 0.32,
-	    "BILIRUBIN_DIRECT": 0.11,
-	    "BILIRUBIN_INDIRECT": 0.21,
-	    "GAMMA_GLUTAMYL_TRANSFERASE": null,
-	    "ASPARTATE_AMINOTRANSFERASE": null,
-	    "ALANINE_TRANSAMINASE": null,
-	    "PROTEIN_TOTAL": null,
-	    "ALBUMIN_SERUM": 4.1,
-	    "SERUM_ALB": -2.0,
-	    "SERUM_GLOBULIN": 3.3,
-	    "TOTAL_CHOLESTEROL": 153.0,
-	    "HDL_CHOLESTEROL_DIRECT": 44.0,
-	    "LDL_CHOLESTEROL_DIRECT": 90.0,
-	    "TRIGLYCERIDES": 179.0,
-	    "TC_HDL_CHOLESTEROL_RATIO": 3.5,
-	    "LDL_HDL_RATIO": 2.1,
-	    "VLDL_CHOLESTEROL": 35.8,
-			LR_HSCRP
-	    "NON_HDL_CHOLESTEROL": 109.2,
-	    "TOTAL_TRIIODOTHYRONINE": 115.0,
-	    "TOTAL_THYROXINE": 11.9,
-	    "THYROID_STIMULATING_HORMONE": 1.57,
-	    "BLOOD_UREA_NITROGEN": 8.86,
-	    "CREATININE_SERUM": 0.72,
-	    "BUN_SR_CREATININE_RATIO": 12.31,
-	    "CALCIUM": 8.59,
-	    "URIC_ACID": 4.8,
-	    "EST_GLOMERULAR_FILTRATION_RATE": null
+			"LR_LR_BARIUM": 0.53,
+	    "LR_CAESIUM": 0.53,
+	    "LR_THALLIUM": 0.53,
+	    "LR_URANIUM": 0.53,
+	    "LR_STRONTIUM": 0.53,
+	    "LR_ANTIMONY": 0.53,
+	    "LR_TIN": 0.53,
+	    "LR_MOLYBDENUM": 0.53,
+	    "LR_SILVER": 0.53,
+	    "LR_VANADIUM": 0.53,
+	    "LR_BERYLLIUM": 0.53,
+	    "LR_BISMUTH": 0.53,
+	    "LR_SELENIUM": 0.53,
+	    "LR_ALUMINIUM": 0.53,
+	    "LR_NICKEL": 0.53,
+	    "LR_MANGANESE": 0.53,
+	    "LR_HOMOCYSTEINE": 0.53,
+	    "LR_CYSTATIN C": 0.53,
+	    "LR_LIPOPROTEIN": 0.53,
+	    "LR_VITAMIN D (TOTAL)": 0.53,
+	    "LR_VITAMIN B-12": 0.53,
+	    "LR_APOLIPOPROTEIN - A1 (APO-A1)": 0.53,
+	    "LR_APOLIPOPROTEIN - B (APO-B)": 0.53,
+	    "LR_APO B / APO A1 RATIO (APO B/A1)": 0.53,
+	    "LR_HIGH SENSITIVITY C-REACTIVE PROTEIN (HS-CRP)": 0.53,
+	    "LR_SERUM COPPER": 0.53,
+	    "LR_SERUM ZINC": 0.53,
+	    "LR_TESTOSTERONE": 0.53,
+	    "LR_IRON": null,
+	    "LR_TOTAL_IRON_BINDING_CAPACITY": null,
+	    "LR_TRANSFERRIN_SATURATION": null,
+	    "LR_ALKALINE_PHOSPHATASE": 129.0,
+	    "LR_BILIRUBIN_TOTAL": 0.32,
+	    "LR_BILIRUBIN_DIRECT": 0.11,
+	    "LR_BILIRUBIN_INDIRECT": 0.21,
+	    "LR_GAMMA_GLUTAMYL_TRANSFERASE": null,
+	    "LR_ASPARTATE_AMINOTRANSFERASE": null,
+	    "LR_ALANINE_TRANSAMINASE": null,
+	    "LR_PROTEIN_TOTAL": null,
+	    "LR_ALBUMIN_SERUM": 4.1,
+	    "LR_SERUM_ALB": -2.0,
+	    "LR_SERUM_GLOBULIN": 3.3,
+	    "LR_TOTAL_CHOLESTEROL": 153.0,
+	    "LR_HDL_CHOLESTEROL_DIRECT": 44.0,
+	    "LR_LDL_CHOLESTEROL_DIRECT": 90.0,
+	    "LR_TRIGLYCERIDES": 179.0,
+	    "LR_TC_HDL_CHOLESTEROL_RATIO": 3.5,
+	    "LR_LDL_HDL_RATIO": 2.1,
+	    "LR_VLDL_CHOLESTEROL": 35.8,
+			"LR_HSCRP":36.8"
+	    "LR_NON_HDL_CHOLESTEROL": 109.2,
+	    "LR_TOTAL_TRIIODOTHYRONINE": 115.0,
+	    "LR_TOTAL_THYROXINE": 11.9,
+	    "LR_THYROID_STIMULATING_HORMONE": 1.57,
+	    "LR_BLOOD_UREA_NITROGEN": 8.86,
+	    "LR_CREATININE_SERUM": 0.72,
+	    "LR_BUN_SR_CREATININE_RATIO": 12.31,
+	    "LR_CALCIUM": 8.59,
+	    "LR_URIC_ACID": 4.8,
+	    "LR_EST_GLOMERULAR_FILTRATION_RATE": null
 	}
 
 
@@ -277,4 +278,11 @@ Key: "inputFile"
 Value: "File"
 
 # Symptoms Checker
- 	 GET : /symptomcheck/<int:question_id>
+ 	 GET : /symptomcheck/<int:SCA_qid>
+	 POST /symptomcheck/<int:SCA_qid>
+
+	 {
+    "UI_SCA_qid" : 1,
+    "UI_SCA_aid" : 3
+
+}

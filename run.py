@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_restful import Api
+from werkzeug.middleware.proxy_fix import ProxyFix
+
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 import tensorflow as tf
@@ -13,13 +15,15 @@ if gpus:
 
 app = Flask(__name__)
 api = Api(app)
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 UPLOAD_FOLDER = '/static/uploads/'
 
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://Kareai:Devil@54645@localhost/newdata'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:54645@localhost/karenew'
-#'mysql+pymysql://root:Vrishab2145@localhost/testOne'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Kareai123@localhost/KAREAIDB'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 app.config['SECRET_KEY'] = 'D3evil4'
 app.config['JWT_SECRET_KEY'] = 'J3evil4'
@@ -34,7 +38,7 @@ jwt = JWTManager(app)
 def create_table():
     db.create_all()
 
-from resources.user import UserRegistration, UserLogin, UserLogoutAccess, UserLogoutRefersh, TokenRefersh, SecretResources
+from resources.user import UserRegistration, UserLogin, UserLogoutAccess, UserLogoutRefersh, TokenRefersh
 from resources.Preexistingcondition import PreexistingCondition
 from resources.Familyhistory import FamilyHistory
 from resources.LabReportUpload import LabReportUpload
@@ -58,7 +62,12 @@ api.add_resource(TokenRefersh, '/token/refresh')
 api.add_resource(PreexistingCondition,'/preexisting/<int:PC_user_id>') # user_id
 api.add_resource(FamilyHistory,'/familyhistory/<int:FH_user_id>/<string:FH_Member>') #
 api.add_resource(LabReport, '/labreport/<int:LR_user_id>')
-api.add_resource(LabReportUpload, '/labreportupload/<int:LU_user_id>')
+api.add_resource(LabReportUpload, '/labreportupload/<int:LR_user_id>')
 api.add_resource(RetinaUpload, '/retinaupload/<int:RU_user_id>')
-api.add_resource(ReferenceRange,'/reference')
-api.add_resource(SymptomChecker, '/symptomcheck/<int:SC_question_id>')
+api.add_resource(ReferenceRange,'/reference/<int:user_id>')
+api.add_resource(SymptomChecker, '/symptomcheck/<int:SCA_qid>')
+
+
+
+if __name__ == '__main__':
+    app.run()

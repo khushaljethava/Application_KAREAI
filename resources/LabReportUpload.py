@@ -150,7 +150,7 @@ class LabReportUpload(Resource):
 
 
     @jwt_required
-    def post(self,LU_user_id):
+    def post(self,LR_user_id):
         def solve(lis):
             for x in lis:
                 try:
@@ -170,8 +170,8 @@ class LabReportUpload(Resource):
 
 
 
-        LU_userid = get_jwt_identity()
-        folder = f"user_{LU_userid}"
+        userid = get_jwt_identity()
+        folder = f"user_{userid}"
 
         file = request.files['inputFile']
 
@@ -877,31 +877,39 @@ class LabReportUpload(Resource):
 
 
 
-        labreportupload = LabReportUploadModel(LU_user_id,LU_name=file.filename,LU_report=file.read())
-        labreport = LabReportModel(LU_user_id, **Report_Dictionary)
 
+        labreportupload = LabReportUploadModel(LR_user_id,LR_name=file.filename,LR_report=file.read())
+        labreport = LabReportModel(LR_user_id, **Report_Dictionary)
 
         try:
-
             labreportupload.save_to_db()
             labreport.save_to_db()
 
         except:
 
-            return {'message': 'An Error occurred'}
-        return Report_Dictionary,201
+            return {
+            "Status" : "Error",
+            'message': 'An Error occurred while saving'}
+        return {
+        "Status" : "Success",
+        "Response" : Report_Dictionary
+        },201
 
 
     @jwt_required
-    def delete(self, user_id):
-        labreportupload =LabReportUploadModel.find_by_id(LU_user_id)
-        LU_userid = get_jwt_identity()
-        folder = f"user_{LU_userid}"
+    def delete(self, LR_user_id):
+        labreportupload =LabReportUploadModel.find_by_id(LR_user_id)
+        userid = get_jwt_identity()
+        folder = f"user_{userid}"
 
         if labreportupload:
             labreportupload.delete_from_db()
             path = os.path.join(Report_FOLDER,folder)
             shutil.rmtree(path)
 
-            return {'message': 'Item deleted successfully.'}
-        return {'message': 'Item not found'}
+            return {
+            "Status" : "Success",
+            'Response': 'Item deleted successfully.'},201
+        return {
+        "Status" :"Error",
+        'Response': 'Item not found'},404
