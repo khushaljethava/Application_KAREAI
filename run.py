@@ -48,6 +48,10 @@ from model.user import RevokedTokenModel
 from resources.ReferenceRange import ReferenceRange
 from resources.SymptomChecker import SymptomChecker
 from resources.Blood_Glucose import BloodGlucose
+from resources.BodyWeight import BodyWeight
+from resources.Insulin import Insulin
+from resources.Steps import Steps
+
 @jwt.token_in_blacklist_loader
 def check_if_token_in_blacklist(decrypted_token):
     jti = decrypted_token['jti']
@@ -68,6 +72,9 @@ api.add_resource(RetinaUpload, '/retinaupload/<int:RU_user_id>')
 api.add_resource(ReferenceRange,'/reference/<int:user_id>')
 api.add_resource(SymptomChecker, '/symptomcheck/<int:UI_user_id>')
 api.add_resource(BloodGlucose, '/bloodglucose/<int:BG_user_id>')
+api.add_resource(BodyWeight, '/bodyweight/<int:BW_user_id>')
+api.add_resource(Insulin, '/insulin/<int:IN_user_id>')
+api.add_resource(Steps, '/steps/<int:ST_user_id>')
 
 
 if __name__ == '__main__':
