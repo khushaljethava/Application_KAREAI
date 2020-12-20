@@ -6,7 +6,7 @@ from run import db
 
 
 class SymptomCheckerAnswerModel(db.Model):
-    __tablename__ = 'SymptomCheckerAnswer2'
+    __tablename__ = 'SymptomCheckerAnswer'
 
     SCA_id = db.Column(db.Integer, primary_key=True)
     SCA_Ans =  db.Column(db.String(120))
