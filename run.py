@@ -51,6 +51,7 @@ from resources.Blood_Glucose import BloodGlucose
 from resources.BodyWeight import BodyWeight
 from resources.Insulin import Insulin
 from resources.Steps import Steps
+from resources.HomeBanner import HomeBanner
 
 @jwt.token_in_blacklist_loader
 def check_if_token_in_blacklist(decrypted_token):
@@ -75,7 +76,7 @@ api.add_resource(BloodGlucose, '/bloodglucose/<int:BG_user_id>')
 api.add_resource(BodyWeight, '/bodyweight/<int:BW_user_id>')
 api.add_resource(Insulin, '/insulin/<int:IN_user_id>')
 api.add_resource(Steps, '/steps/<int:ST_user_id>')
-
+api.add_resource(HomeBanner, '/homebanner/<int:user_id>/<string:today_date>')
 
 if __name__ == '__main__':
     app.run()
